@@ -35,7 +35,7 @@
 /* Definition of Task Stacks */
 #define   TASK_STACKSIZE       2048
 
-OS_STK    LEDSTask_stk[TASK_STACKSIZE];
+OS_STK    GestureRecognition_stk[TASK_STACKSIZE];
 OS_STK 	  LCDTask_stk[TASK_STACKSIZE];
 
 /* Definition of Task Priorities */
@@ -58,22 +58,19 @@ alt_up_character_lcd_dev * char_lcd_dev;
 
 // A state-machine-esque task that will use
 // gesture_trie.c to recognize gestures.
-void GestureRecognitionTask(void* pdata)
-{
+void GestureRecognitionTask(void* pdata) {
 }
 
-void LCDTask(void* pdata)
-{
+void LCDTask(void* pdata) {
 }
 
 // Should be called at regular intervals to post
 // new direction to a queue.
-static void gate_timer_isr(void *context) {
+static void direction_posting_isr(void *context) {
 }
 
 /* The main function creates three tasks and starts multi-tasking */
-int main(void)
-{
+int main(void) {
 	OSStart();
 	return 0;
 }
