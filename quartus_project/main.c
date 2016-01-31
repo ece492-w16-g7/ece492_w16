@@ -41,7 +41,9 @@ OS_STK 	  LCDTask_stk[TASK_STACKSIZE];
 /* Definition of Task Priorities */
 
 #define GestureRecognitionTask_PRIORITY	1
-#define LCDTask_PRIORITY                2
+#define AddGestureTask_PRIORITY         2
+#define MusicPlayerTask_PRIORITY        3
+#define LCDTask_PRIORITY                4
 
 // Queue for lcd to print message after
 // gesture recognition.
@@ -54,11 +56,22 @@ void *LCDQueue[LCDQSize];
 OS_EVENT *gesture_queue;
 void *GesQueue[GesQSize];
 
+// Queue for music player commands.
+#define MusicQSize 4
+OS_EVENT *music_player_queue;
+void *MusicQueue[MusicQSize];
+
 alt_up_character_lcd_dev * char_lcd_dev;
 
 // A state-machine-esque task that will use
 // gesture_trie.c to recognize gestures.
 void GestureRecognitionTask(void* pdata) {
+}
+
+void AddGestureTask(void* pdata) {
+}
+
+void MusicPlayerTask(void* pdata) {
 }
 
 void LCDTask(void* pdata) {
@@ -67,6 +80,9 @@ void LCDTask(void* pdata) {
 // Should be called at regular intervals to post
 // new direction to a queue.
 static void direction_posting_isr(void *context) {
+}
+
+static void add_gesture_isr(void *context) {
 }
 
 /* The main function creates three tasks and starts multi-tasking */

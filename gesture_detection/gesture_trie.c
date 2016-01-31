@@ -1,10 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define UP      1000
-#define DOWN    1001
-#define LEFT    1002
-#define RIGHT   1003
+#define UP          1000
+#define DOWN        1001
+#define LEFT        1002
+#define RIGHT       1003
+#define UP_RIGHT    1004
+#define UP_LEFT     1005
+#define DOWN_RIGHT  1006
+#define DOWN_LEFT   1007
 
 struct Node {
     int direction;
