@@ -1,0 +1,16 @@
+quartus_project/db
+quartus_project/incremental_db
+quartus_project/output_files
+quartus_project/niosII_system
+quartus_project/simulation
+
+quartus_project/*.bak
+quartus_project/*.qar
+quartus_project/*.rpt
+quartus_project/*.sopcinfo
+quartus_project/*.qws
+quartus_project/*.jdi
+quartus_project/*.cmp
+
+quartus_project/software/niosII_microc_w16_g7/obj
+
