@@ -5,24 +5,34 @@ use ieee.numeric_std.all;
 use ieee.std_logic_unsigned.all;
 
 entity LED_detector is
-    type FRAME_TYPE is (CALIBRATION, PROCESSING, END_FRAME);
+    type FRAME_STATE is (PROCESSING, END_FRAME);
 
     port (
         -- inputs
-        clk : in STD_LOGIC;
-        reset_n : in STD_LOGIC;
+        clk                         : in STD_LOGIC;
+        reset_n                     : in STD_LOGIC;
 
         -- From 2015G4 rgb_to_..._threshold.vhd
-        stream_in_data : in STD_LOGIC_VECTOR(23 downto 0);
+        stream_out_ready            : in STD_LOGIC;
+        stream_in_data              : in STD_LOGIC_VECTOR(23 downto 0);
+        stream_in_startofpacket     : in STD_LOGIC;
+        stream_in_endofpacket       : in STD_LOGIC;
+        stream_in_valid             : in STD_LOGIC;
 
         -- outputs
-        position_output_ready : out STD_LOGIC;
-        position : out STD_LOGIC_VECTOR(15 downto 0));
+        stream_in_ready             : buffer STD_LOGIC;
+        stream_out_data             : buffer STD_LOGIC;
+        stream_out_startofpacket    : buffer STD_LOGIC;
+        stream_out_endofpacket      : buffer STD_LOGIC;
+        stream_out_valid            : buffer STD_LOGIC;
+
+        position_ready_irq          : out STD_LOGIC;
+        position                    : out STD_LOGIC_VECTOR(15 downto 0));
 
 end entity;
 
 architecture detector of LED_detector is
-    signal current_state : FRAME_TYPE := CALIBRATION;
+    signal current_state : FRAME_STATE := PROCESSING;
 
     signal channel_pixel : STD_LOGIC_VECTOR(7 downto 0);
     signal baseline_pixel : STD_LOGIC_VECTOR(7 downto 0);
@@ -50,24 +60,12 @@ begin
     begin
         case current_state is
 
-            when CALIBRATION =>
-                if (frame_counter = n_calibration_frames) then
-                    current_state <= PROCESSING;
-                else
-                    -- TODO: Do the below for every pixel in current frame.
-                    -- TODO: Load the current baseline pixel to signal.
-                    channel_pixel <= stream_in_data(15 downto 8);
-                    baseline_pixel <= STD_LOGIC_VECTOR((UNSIGNED(baseline_pixel) + UNSIGNED(channel_pixel))) / 2)
-                    -- TODO: Save new pixel value to memory.
-                    -- TODO: End frame if necessary.
-                end if;
-
             when PROCESSING =>
                 -- TODO: Do the following for all pixels in current frame.
                 -- TODO: Load the baseline pixel to signal.
                 channel_pixel <= stream_in_data(15 downto 8);
-                channel_pixel <= STD_LOGIC_VECTOR(UNSIGNED(channel_pixel) - UNSIGNED(baseline_pixel));
-                channel_pixel <= STD_LOGIC_VECTOR(UNSIGNED(channel_pixel) * amplification_multiplier);
+                --channel_pixel <= STD_LOGIC_VECTOR(UNSIGNED(channel_pixel) - UNSIGNED(baseline_pixel));
+                --channel_pixel <= STD_LOGIC_VECTOR(UNSIGNED(channel_pixel) * amplification_multiplier);
 
                 if (UNSIGNED(channel_pixel) > binary_threshold_value) then
                     consecutive_pixels = consecutive_pixels + 1;

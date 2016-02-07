@@ -44,7 +44,8 @@ while (1)
     green_channel = frame(:,:,2);
     difference_frame = green_channel - baseline_frame;
     amplified_frame = 3 .* difference_frame;
-    binary_frame = amplified_frame > binary_threshold_value;
+    %binary_frame = amplified_frame > binary_threshold_value;
+    binary_frame = green_channel > binary_threshold_value;
     imshow(binary_frame);
 
     hold on;

@@ -9,6 +9,7 @@
 #define UP_LEFT     1005
 #define DOWN_RIGHT  1006
 #define DOWN_LEFT   1007
+#define NO_MOVE     1008
 
 struct Node {
     int direction;
