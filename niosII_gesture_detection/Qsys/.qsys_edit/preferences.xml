@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences>
+ <debug showDebugMenu="0" />
+ <systemtable>
+  <columns>
+   <connections preferredWidth="351" />
+   <irq preferredWidth="34" />
+   <name preferredWidth="264" />
+   <inputclock preferredWidth="140" />
+   <export preferredWidth="138" />
+   <description preferredWidth="179" />
+  </columns>
+ </systemtable>
+ <clocktable>
+  <columns>
+   <clockname preferredWidth="288" />
+   <clocksource preferredWidth="288" />
+   <frequency preferredWidth="269" />
+  </columns>
+ </clocktable>
+ <library
+   expandedCategories="Library/University Program,Library/University Program/Audio &amp; Video/Video,Project,Library,Library/University Program/Audio &amp; Video,Library/DSP/Video and Image Processing,Library/DSP" />
+ <window width="1155" height="826" x="204" y="25" />
+ <hdlexample language="VERILOG" />
+ <generation synthesis="1" block_symbol_file="1" />
+</preferences>
