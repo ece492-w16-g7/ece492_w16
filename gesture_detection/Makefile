@@ -1,7 +1,7 @@
 #Thanks to http://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/
 
 CC=gcc
-CFLAGS=-I.
+CFLAGS=-I. -lm -g
 DEPS = $(shell ls *.h)
 CDEPS = $(shell ls *.c)
 

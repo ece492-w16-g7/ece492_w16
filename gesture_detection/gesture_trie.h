@@ -1,6 +1,21 @@
 #ifndef GESTURE_TRIE__
 #define GESTURE_TRIE__
 
+#include <stdlib.h>
+#include <math.h>
+
+#define PI 	3.14159
+
+// Assuming 0/2PI on left and PI on right.
+#define ANG_LEFT_COMPARISON(angle) 			((angle <= 23) && (angle > 338))
+#define ANG_DOWN_LEFT_COMPARISON(angle) 	((angle <= 68) && (angle > 23))
+#define ANG_DOWN_COMPARISON(angle) 			((angle <= 113) && (angle > 68))
+#define ANG_DOWN_RIGHT_COMPARISON(angle) 	((angle <= 158) && (angle > 113))
+#define ANG_RIGHT_COMPARISON(angle) 		((angle <= 203) && (angle > 158))
+#define ANG_UP_RIGHT_COMPARISON(angle) 		((angle <= 248) && (angle > 203))
+#define ANG_UP_COMPARISON(angle) 			((angle <= 293) && (angle > 248))
+#define ANG_UP_LEFT_COMPARISON(angle) 		((angle <= 338) && (angle > 293))
+
 #define UP          		1000
 #define DOWN        		1001
 #define LEFT        		1002
@@ -28,7 +43,11 @@ struct ChildNode {
 	struct ChildNode *next;
 };
 
+
+void loadPredefinedGestures(void);
+int getDirectionFromCoordinates(int x0, int y0, int x1, int y1, int thresh);
 struct DirectionNode *getBase(void);
+void printTrie(struct DirectionNode *root);
 
 // direct is the direction being searched.
 // current is the current node.
