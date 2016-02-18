@@ -13,4 +13,6 @@ quartus_project/*.jdi
 quartus_project/*.cmp
 
 quartus_project/software/niosII_microc_w16_g7/obj
+quartus_project/software/niosII_microc_w16_g7_bsp/obj
+quartus_project/software/niosII_microc_w16_g7_bsp/HAL
 

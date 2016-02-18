@@ -7,7 +7,7 @@ file = fopen('position_info.csv', 'w');
 % http://www.mathworks.com/help/supportpkg/usbwebcams/ug/acquire-webcam-images-in-a-loop.html
 cam = webcam;
 
-cam.Resolution = '640x480';
+cam.Resolution = '320x240';
 
 binary_threshold_value = 250;
 n_calibration_frames = 10;
