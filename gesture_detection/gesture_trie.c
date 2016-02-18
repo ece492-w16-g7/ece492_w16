@@ -6,16 +6,6 @@ static struct DirectionNode *createDirectionNode(int direction, int gesture_code
 static void addChild(struct DirectionNode *parent, struct DirectionNode *child);
 static struct ChildNode *createChildNode(struct DirectionNode *direction_node);
 
-void loadPredefinedGestures(void) {
-	int gesture_1[] = {UP, UP, UP_RIGHT, UP};
-	int gesture_2[] = {UP, DOWN, DOWN};
-	int gesture_3[] = {UP, DOWN, RIGHT, UP};
-
-	addGesture(20, gesture_1, 4);
-	addGesture(21, gesture_2, 3);
-	addGesture(22, gesture_3, 4);
-}
-
 int getDirectionFromCoordinates(int x0, int y0, int x1, int y1, int thresh) {
 	int dy = y1 - y0;
 	int dx = x1 - x0;
