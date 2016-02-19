@@ -8,24 +8,25 @@
 #define GESTURE_STRING_BUFFER_SIZE 	20
 
 static void randomizeXY(int *x, int *y, int range);
-static void storeGestureFromFile(char *filename, int gesture_code, int direction_thresh);
+static void storeGestureFromFile(char *filename, int gesture_code, int length_thresh, int angle_thresh);
 
 int main(int argc, char *argv[]) {
-	if ((argc < 6) || (argc % 2)) {
-		printf("./main <raw_position_data> <randomize_n> <thresh> <gesture_positions> <gesture_code> ...\n");
+	if ((argc < 7) || ((argc % 2) == 0)) {
+		printf("./main <raw_position_data> <randomize_n> <angle_thresh> <length_thresh> <gesture_positions> <gesture_code> ...\n");
 		exit(0);
 	}
 
 	int old_x, old_y, x, y, direction_code;
 
 	int randomize_number = atoi(argv[2]);
-	int direction_thresh = atoi(argv[3]);
+	int angle_thresh = atoi(argv[3]);
+	int length_thresh = atoi(argv[4]);
 
 	// http://stackoverflow.com/questions/822323/how-to-generate-a-random-number-in-c
 	srand(time(NULL));
 
-	for (int i=4; i < argc; i+=2)
-		storeGestureFromFile(argv[i], atoi(argv[i+1]), direction_thresh);
+	for (int i=5; i < argc; i+=2)
+		storeGestureFromFile(argv[i], atoi(argv[i+1]), length_thresh, angle_thresh);
 
 	FILE *file = fopen(argv[1], "r");
 	if (file == NULL) {
@@ -33,8 +34,8 @@ int main(int argc, char *argv[]) {
 		exit(0);
 	}
 
-	fscanf(file, "%d,%d\n", &old_x, &old_y);
-	randomizeXY(&old_x, &old_y, randomize_number);
+	old_x = 0;
+	old_y = 0;
 
 	struct DirectionNode *current = getBase();
 	printTrie(current);
@@ -44,10 +45,10 @@ int main(int argc, char *argv[]) {
 		fscanf(file, "%d,%d\n", &x, &y);
 		randomizeXY(&x, &y, randomize_number);
 		
-		int direction = getDirectionFromCoordinates(old_x, old_y, x, y, direction_thresh);
-		current = nextDirectionNode(direction, current, &direction_code);
+		int angle = getAngleFromCoordinates(old_x, old_y, x, y, length_thresh);
+		current = nextDirectionNode(angle, current, &direction_code, angle_thresh);
 
-		printf("%d: %d,%d %d ", i, x, y, direction);
+		printf("%d: %d,%d %d ", i, x, y, angle);
 
 		if (current) {
 			if (current->gesture_code != NO_GESTURE) {
@@ -55,10 +56,10 @@ int main(int argc, char *argv[]) {
 				current = getBase();
 			}
 
-			printf("hit: %d\n", i);
+			printf("hit\n");
 		} else {
 			current = getBase();
-			printf("miss: %d\n", i);
+			printf("miss\n");
 		}
 
 		old_x = x;
@@ -69,7 +70,7 @@ int main(int argc, char *argv[]) {
 	}
 }
 
-static void storeGestureFromFile(char *filename, int gesture_code, int direction_thresh) {
+static void storeGestureFromFile(char *filename, int gesture_code, int length_thresh, int angle_thresh) {
 	int gesture[GESTURE_STRING_BUFFER_SIZE];
 	int i = 0, old_x = 0, old_y = 0, x = 0, y = 0;
 
@@ -84,7 +85,7 @@ static void storeGestureFromFile(char *filename, int gesture_code, int direction
 
 	while ((i < GESTURE_STRING_BUFFER_SIZE) && (feof(file) == 0)) {
 		fscanf(file, "%d,%d\n", &x, &y);
-		gesture[i] = getDirectionFromCoordinates(old_x, old_y, x, y, direction_thresh);
+		gesture[i] = getAngleFromCoordinates(old_x, old_y, x, y, length_thresh);
 		
 		old_x = x;
 		old_y = y;
@@ -92,7 +93,7 @@ static void storeGestureFromFile(char *filename, int gesture_code, int direction
 		i++;
 	}
 
-	addGesture(gesture_code, gesture, i);
+	addGesture(gesture_code, gesture, i, angle_thresh);
 }
 
 static void randomizeXY(int *x, int *y, int range) {
