@@ -75,18 +75,50 @@ void MusicPlayerTask(void* pdata) {
 }
 
 void LCDTask(void* pdata) {
+	char_lcd_dev = alt_up_character_lcd_open_dev ("/dev/character_lcd_0");
+
+	if (char_lcd_dev == NULL)
+		printf("Error: could not open character LCD device\n");
+
+	alt_up_character_lcd_init(char_lcd_dev);
+
+	while (1)
+	{
+		alt_up_character_lcd_init(char_lcd_dev);
+		alt_up_character_lcd_string(char_lcd_dev, "Your cric");
+
+		OSTimeDlyHMSM(0, 0, 1, 0);
+
+		alt_up_character_lcd_string(char_lcd_dev, "Bob's cric");
+		printf("Test\n");
+
+		OSTimeDlyHMSM(0, 0, 1, 0);
+	}
 }
 
 // Should be called at regular intervals to post
 // new direction to a queue.
 static void direction_posting_isr(void *context) {
+	printf("Test\n");
 }
-
-static void add_gesture_isr(void *context) {
-}
+//
+//static void add_gesture_isr(void *context) {
+//}
 
 /* The main function creates three tasks and starts multi-tasking */
 int main(void) {
+	OSTaskCreateExt(LCDTask,
+			NULL,
+			(void *)&LCDTask_stk[TASK_STACKSIZE-1],
+			LCDTask_PRIORITY,
+			LCDTask_PRIORITY,
+			LCDTask_stk,
+			TASK_STACKSIZE,
+			NULL,
+			0);
+
+	alt_ic_isr_register(IMAGE_THRESHOLDER_0_IRQ, IMAGE_THRESHOLDER_0_IRQ_INTERRUPT_CONTROLLER_ID, direction_posting_isr, NULL, NULL);
+
 	OSStart();
 	return 0;
 }

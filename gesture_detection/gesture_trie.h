@@ -44,7 +44,6 @@ struct ChildNode {
 };
 
 
-void loadPredefinedGestures(void);
 int getDirectionFromCoordinates(int x0, int y0, int x1, int y1, int thresh);
 struct DirectionNode *getBase(void);
 void printTrie(struct DirectionNode *root);
