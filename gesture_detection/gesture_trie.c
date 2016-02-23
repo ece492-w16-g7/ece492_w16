@@ -71,8 +71,10 @@ int addGesture(int gesture_code, int n, int gesture_sequence[n][2], struct Thres
 	direction_node = getBase();
 
 	for (int i=1; i<n; i++) {
-		incoming_node = createDirectionNode(gesture_sequence[i-1][0], gesture_sequence[i-1][1], gesture_sequence[i][0], gesture_sequence[i][0], NO_GESTURE);
+		incoming_node = createDirectionNode(gesture_sequence[i-1][0], gesture_sequence[i-1][1], gesture_sequence[i][0], gesture_sequence[i][1], NO_GESTURE);
 		search_node = nextDirectionNode(incoming_node, direction_node, &gesture_code_found, thresh);
+
+		// printf("- (%d,%d) (%d,%d) %d %d\n", gesture_sequence[i-1][0], gesture_sequence[i-1][1], gesture_sequence[i][0], gesture_sequence[i][1], incoming_node->angle, incoming_node->length);
 
 		if (search_node != NULL) {
 			// Direction already exists in tree.
@@ -120,9 +122,9 @@ struct DirectionNode *createDirectionNode(int x0, int y0, int x1, int y1, int ge
 
 void printTrie(struct DirectionNode *root) {
 	if (root->gesture_code != NO_GESTURE) { 
-		printf("%d -- %d\n", root->angle, root->gesture_code);
+		printf("(%d,%d) -- %d\n", root->angle, root->length, root->gesture_code);
 	} else {
-		printf("%d ", root->angle);
+		printf("(%d,%d) ", root->angle, root->length);
 	}
 
 	struct ChildNode *child = root->children;
