@@ -8,7 +8,7 @@
 #define GESTURE_STRING_BUFFER_SIZE 	20
 
 static void randomizeXY(int *x, int *y, int range);
-static void storeGestureFromFile(char *filename, int gesture_code, int length_thresh, int angle_thresh);
+static void storeGestureFromFile(char *filename, int gesture_code, struct Threshold *thresh);
 
 int main(int argc, char *argv[]) {
 	if ((argc < 7) || ((argc % 2) == 0)) {
@@ -17,16 +17,17 @@ int main(int argc, char *argv[]) {
 	}
 
 	int old_x, old_y, x, y, direction_code;
-
 	int randomize_number = atoi(argv[2]);
-	int angle_thresh = atoi(argv[3]);
-	int length_thresh = atoi(argv[4]);
+
+	struct Threshold thresh;
+	thresh.angle = atoi(argv[3]);
+	thresh.length = atoi(argv[4]);
 
 	// http://stackoverflow.com/questions/822323/how-to-generate-a-random-number-in-c
 	srand(time(NULL));
 
 	for (int i=5; i < argc; i+=2)
-		storeGestureFromFile(argv[i], atoi(argv[i+1]), length_thresh, angle_thresh);
+		storeGestureFromFile(argv[i], atoi(argv[i+1]), &thresh);
 
 	FILE *file = fopen(argv[1], "r");
 	if (file == NULL) {
@@ -40,15 +41,16 @@ int main(int argc, char *argv[]) {
 	struct DirectionNode *current = getBase();
 	printTrie(current);
 
+	struct DirectionNode *incoming_node;
 	int i = 0;
 	while (feof(file) == 0) {
 		fscanf(file, "%d,%d\n", &x, &y);
 		randomizeXY(&x, &y, randomize_number);
 		
-		int angle = getAngleFromCoordinates(old_x, old_y, x, y, length_thresh);
-		current = nextDirectionNode(angle, current, &direction_code, angle_thresh);
+		incoming_node = createDirectionNode(old_x, old_y, x, y, NO_GESTURE);
+		current = nextDirectionNode(incoming_node, current, &direction_code, &thresh);
 
-		printf("%d: %d,%d %d ", i, x, y, angle);
+		printf("%d: %d,%d %d %d ", i, x, y, incoming_node->angle, incoming_node->length);
 
 		if (current) {
 			if (current->gesture_code != NO_GESTURE) {
@@ -70,9 +72,9 @@ int main(int argc, char *argv[]) {
 	}
 }
 
-static void storeGestureFromFile(char *filename, int gesture_code, int length_thresh, int angle_thresh) {
-	int gesture[GESTURE_STRING_BUFFER_SIZE];
-	int i = 0, old_x = 0, old_y = 0, x = 0, y = 0;
+static void storeGestureFromFile(char *filename, int gesture_code, struct Threshold *thresh) {
+	int gesture[GESTURE_STRING_BUFFER_SIZE][2];
+	int i = 0;
 
 	// http://stackoverflow.com/questions/3501338/c-read-file-line-by-line
 	FILE *file = fopen(filename, "r");
@@ -81,19 +83,12 @@ static void storeGestureFromFile(char *filename, int gesture_code, int length_th
 		exit(0);
 	}
 
-	fscanf(file, "%d,%d\n", &old_x, &old_y);
-
 	while ((i < GESTURE_STRING_BUFFER_SIZE) && (feof(file) == 0)) {
-		fscanf(file, "%d,%d\n", &x, &y);
-		gesture[i] = getAngleFromCoordinates(old_x, old_y, x, y, length_thresh);
-		
-		old_x = x;
-		old_y = y;
-
+		fscanf(file, "%d,%d\n", &gesture[i][0], &gesture[i][1]);
 		i++;
 	}
 
-	addGesture(gesture_code, gesture, i, angle_thresh);
+	addGesture(gesture_code, i, gesture, thresh);
 }
 
 static void randomizeXY(int *x, int *y, int range) {

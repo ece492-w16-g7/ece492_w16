@@ -15,6 +15,7 @@
 
 struct DirectionNode {
     int angle;
+    int length;
     struct DirectionNode *parent;
     struct ChildNode *children;
     int gesture_code;
@@ -25,20 +26,10 @@ struct ChildNode {
 	struct ChildNode *next;
 };
 
-/**
- * Finds angle between two points.
- * @param  x0            
- * @param  y0            
- * @param  x1            
- * @param  y1            
- * @param  length_thresh If the length between two points is less than the
- *                       length_thresh, then the angle returned is a special
- *                       angle to signify that the points are too close together
- *                       for the actual angle to matter.
- * @return               Returns angle between points or special angle if the
- *                       length between points is less than length_thresh.
- */
-int getAngleFromCoordinates(int x0, int y0, int x1, int y1, int length_thresh);
+struct Threshold {
+	int angle;
+	int length;
+};
 
 /**
  * Returns base of tree. Note that this stores a static variable.
@@ -48,27 +39,37 @@ struct DirectionNode *getBase(void);
 
 /**
  * Finds the next node to move to given an angle and the current direction.
- * @param  angle        The angle for the searching node.
+ * @param  next        	The searching node.
  * @param  current      The current node.
  * @param  gesture_code Pointer to an int for returning gesture_code. Set to gesture_code
  *                      only if a leaf node is found. Otherwise, set to NO_GESTURE.
- * @param  angle_thresh The angle threshold used to compare angles.
+ * @param  thresh 		The angle and length threshold used to compare angles.
  * @return              Returns NULL if DNE. Else, returns child with correct angle. Will
  *                      set gesture_code if leaf node.
  */
-struct DirectionNode *nextDirectionNode(int angle, struct DirectionNode *current, int *gesture_code, int angle_thresh);
+struct DirectionNode *nextDirectionNode(struct DirectionNode *next, struct DirectionNode *current, int *gesture_code, struct Threshold *thresh);
 
 /**
  * Adds a gesture sequence to the tree.
  * @param  gesture_code     The gesture code for the given gesture.
- * @param  gesture_sequence An int array with angles. Please keep angles >= 0 and < 359.
- *                          Note that there is a special STATIONARY_ANGLE as well.
+ * @param  gesture_sequence An int array with x,y coordinates.
  * @param  n                The number of points in the gesture.
- * @param angle_thresh		Used to compare to existing gestures in the tree.
+ * @param  thresh 			The angle and length threshold used to compare angles.
  * @return                  Returns 0 if successful and -1 if error.
  */
-int addGesture(int gesture_code, int gesture_sequence[], int n, int angle_thresh);
+int addGesture(int gesture_code, int n, int gesture_sequence[n][2], struct Threshold *thresh);
+
+/**
+ * @param  x0
+ * @param  y0
+ * @param  x1
+ * @param  y1
+ * @param  gesture_code gesture_code should be NO_GESTURE if not a leaf DirectionNode.
+ * @return              Returns created DirectionNode.
+ */ 
+struct DirectionNode *createDirectionNode(int x0, int y0, int x1, int y1, int gesture_code);
 	
 void printTrie(struct DirectionNode *root);
+void printNode(struct DirectionNode *node);
 
 #endif
