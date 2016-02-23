@@ -5,6 +5,7 @@ static int getLengthFromCoordinates(int x0, int y0, int x1, int y1);
 static int compareTwoDirectionNodes(struct DirectionNode *node0, struct DirectionNode *node1, struct Threshold *thresh);
 static void addChild(struct DirectionNode *parent, struct DirectionNode *child);
 static struct ChildNode *createChildNode(struct DirectionNode *direction_node);
+static int min(int a, int b);
 
 /**
  * Returns base of tree. Note that this stores a static variable.
@@ -134,6 +135,10 @@ void printTrie(struct DirectionNode *root) {
 	}
 }
 
+void printNode(struct DirectionNode *node) {
+	printf("(%d,%d)\n", node->angle, node->length);
+}
+
 /**
  * Finds angle between two points.
  * @param  x0            
@@ -165,7 +170,20 @@ static int getLengthFromCoordinates(int x0, int y0, int x1, int y1) {
  * @return          Returns 0 if angles are similar. Otherwise, 1.
  */
 static int compareTwoDirectionNodes(struct DirectionNode *node0, struct DirectionNode *node1, struct Threshold *thresh) {
-	return 0;
+	int diff_angle = min((node1->angle - node0->angle + 360) % 361, (node0->angle - node1->angle + 360) % 361);
+	int diff_length = abs(node1->length - node0->length);
+
+	int comparison;
+
+	if (diff_length < thresh->length) {
+		comparison = 0;
+	} else if (diff_angle < thresh->angle) {
+		comparison = 0;
+	} else {
+		comparison = 1;
+	}
+
+	return comparison;
 }
 
 static void addChild(struct DirectionNode *parent, struct DirectionNode *child) {
@@ -192,4 +210,8 @@ static struct ChildNode *createChildNode(struct DirectionNode *direction_node) {
 	child_node->next = NULL;
 
 	return child_node;
+}
+
+static int min(int a, int b) {
+	return a < b ? a : b;
 }

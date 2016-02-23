@@ -70,5 +70,6 @@ int addGesture(int gesture_code, int n, int gesture_sequence[n][2], struct Thres
 struct DirectionNode *createDirectionNode(int x0, int y0, int x1, int y1, int gesture_code);
 	
 void printTrie(struct DirectionNode *root);
+void printNode(struct DirectionNode *node);
 
 #endif
