@@ -50,18 +50,18 @@ int main(int argc, char *argv[]) {
 		incoming_node = createDirectionNode(old_x, old_y, x, y, NO_GESTURE);
 		current = nextDirectionNode(incoming_node, current, &direction_code, &thresh);
 
-		printf("%d: %d,%d %d %d ", i, x, y, incoming_node->angle, incoming_node->length);
+		printf("%d,%d,%d,%d,%d", i, x, y, incoming_node->angle, incoming_node->length);
 
 		if (current) {
 			if (current->gesture_code != NO_GESTURE) {
-				printf("gesture #%d ", current->gesture_code);
+				printf(",%d\n", current->gesture_code);
 				current = getBase();
+			} else {
+				printf(",h\n");
 			}
-
-			printf("hit\n");
 		} else {
 			current = getBase();
-			printf("miss\n");
+			printf(",m\n");
 		}
 
 		old_x = x;

@@ -1,6 +1,6 @@
 #include "gesture_trie.h"
 
-static int getAngleFromCoordinates(int x0, int y0, int x1, int y1);
+static int getAngleFromCoordinates(int x, int y);
 static int getLengthFromCoordinates(int x0, int y0, int x1, int y1);
 static int compareTwoDirectionNodes(struct DirectionNode *node0, struct DirectionNode *node1, struct Threshold *thresh);
 static void addChild(struct DirectionNode *parent, struct DirectionNode *child);
@@ -107,7 +107,7 @@ int addGesture(int gesture_code, int n, int gesture_sequence[n][2], struct Thres
  * @return              Returns created DirectionNode.
  */ 
 struct DirectionNode *createDirectionNode(int x0, int y0, int x1, int y1, int gesture_code) {
-	int angle = getAngleFromCoordinates(x0, y0, x1, y1);
+	int angle = getAngleFromCoordinates(x1, y1);
 	int length = getLengthFromCoordinates(x0, y0, x1, y1);
 
 	struct DirectionNode *direction_node = (struct DirectionNode *) malloc(sizeof(struct DirectionNode));
@@ -141,18 +141,13 @@ void printNode(struct DirectionNode *node) {
 
 /**
  * Finds angle between two points.
- * @param  x0            
- * @param  y0            
- * @param  x1            
- * @param  y1            
+ * @param  x            
+ * @param  y00            
  * @return    	Returns angle between points in degrees.
  */
-static int getAngleFromCoordinates(int x0, int y0, int x1, int y1) {
-	int dy = y1 - y0;
-	int dx = x1 - x0;
-
+static int getAngleFromCoordinates(int x, int y) {
 	// Assuming 0/2PI on left and PI on right.
-	return (int) (atan2(dy, dx) * 180 / PI + 180);
+	return (int) (atan2(y, x) * 180 / PI + 180);
 }
 
 static int getLengthFromCoordinates(int x0, int y0, int x1, int y1) {
