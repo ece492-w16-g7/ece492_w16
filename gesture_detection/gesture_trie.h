@@ -17,8 +17,8 @@
 #define LENGTH_PERCENT_ERROR 	20
 
 struct DirectionNode {
-    int angle;
-    int length;
+    int x;
+    int y;
     struct DirectionNode *parent;
     struct ChildNode *children;
     int gesture_code;
@@ -30,8 +30,7 @@ struct ChildNode {
 };
 
 struct Threshold {
-	int angle;
-	int length;
+	int radius;
 };
 
 /**
@@ -70,8 +69,8 @@ int addGesture(int gesture_code, int n, int gesture_sequence[n][2], struct Thres
  * @param  gesture_code gesture_code should be NO_GESTURE if not a leaf DirectionNode.
  * @return              Returns created DirectionNode.
  */ 
-struct DirectionNode *createDirectionNode(int x0, int y0, int x1, int y1, int gesture_code);
-	
+struct DirectionNode *createDirectionNode(int x, int y, int gesture_code);
+
 void printTrie(struct DirectionNode *root);
 void printNode(struct DirectionNode *node);
 

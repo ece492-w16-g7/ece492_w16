@@ -22,17 +22,16 @@ int main(int argc, char *argv[]) {
 		exit(0);
 	}
 
-	int old_x, old_y, x, y, direction_code, last_point_status, repeat_flag;
+	int x, y, direction_code, last_point_status, repeat_flag;
 	int randomize_number = atoi(argv[2]);
 
 	struct Threshold thresh;
-	thresh.angle = atoi(argv[3]);
-	thresh.length = atoi(argv[4]);
+	thresh.radius = atoi(argv[3]);
 
 	// http://stackoverflow.com/questions/822323/how-to-generate-a-random-number-in-c
 	srand(time(NULL));
 
-	for (int i=5; i < argc; i+=2)
+	for (int i=4; i < argc; i+=2)
 		storeGestureFromFile(argv[i], atoi(argv[i+1]), &thresh);
 
 	FILE *file = fopen(argv[1], "r");
@@ -41,8 +40,6 @@ int main(int argc, char *argv[]) {
 		exit(0);
 	}
 
-	old_x = 0;
-	old_y = 0;
 	last_point_status = MISS;
 	repeat_flag = CONTINUE;
 
@@ -60,10 +57,10 @@ int main(int argc, char *argv[]) {
 			repeat_flag = CONTINUE;
 		}
 		
-		incoming_node = createDirectionNode(old_x, old_y, x, y, NO_GESTURE);
+		incoming_node = createDirectionNode(x, y, NO_GESTURE);
 		current = nextDirectionNode(incoming_node, current, &direction_code, &thresh);
 
-		printf("%d,%d,%d,%d,%d", i, x, y, incoming_node->angle, incoming_node->length);
+		printf("%d,%d,%d", i, x, y);
 
 		if (current) {
 			// Leaf node
@@ -72,19 +69,13 @@ int main(int argc, char *argv[]) {
 				current = getBase();
 				
 				last_point_status = MISS;
-				old_x = 0;
-				old_y = 0;
 			} else {
 				printf(",h\n");
 				last_point_status = HIT;
-				old_x = x;
-				old_y = y;
 			}
 		} else {
 			if (last_point_status == HIT) {
 				last_point_status = MISS;
-				old_x = 0;
-				old_y = 0;
 				repeat_flag = REPEAT;
 			}
 
