@@ -1,6 +1,6 @@
 #include "gesture_trie.h"
 
-static int getAngleFromCoordinates(int x, int y);
+static int getAngleFromCoordinates(int x0, int y0, int x1, int y1);
 static int getLengthFromCoordinates(int x0, int y0, int x1, int y1);
 static int compareTwoDirectionNodes(struct DirectionNode *node0, struct DirectionNode *node1, struct Threshold *thresh);
 static void addChild(struct DirectionNode *parent, struct DirectionNode *child);
@@ -59,7 +59,8 @@ struct DirectionNode *nextDirectionNode(struct DirectionNode *next, struct Direc
 
 /**
  * Adds a gesture sequence to the tree.
- * @param  gesture_code     The gesture code for the given gesture.
+ * @param  gesture_code     The gesture code for the given gesture. Please make the
+ 							first point passed in (0,0).
  * @param  gesture_sequence An int array with x,y coordinates.
  * @param  n                The number of points in the gesture.
  * @param  thresh 			The angle and length threshold used to compare angles.
@@ -109,7 +110,7 @@ int addGesture(int gesture_code, int n, int gesture_sequence[n][2], struct Thres
  * @return              Returns created DirectionNode.
  */ 
 struct DirectionNode *createDirectionNode(int x0, int y0, int x1, int y1, int gesture_code) {
-	int angle = getAngleFromCoordinates(x1, y1);
+	int angle = getAngleFromCoordinates(x0, y0, x1, y1);
 	int length = getLengthFromCoordinates(x0, y0, x1, y1);
 
 	struct DirectionNode *direction_node = (struct DirectionNode *) malloc(sizeof(struct DirectionNode));
@@ -147,9 +148,12 @@ void printNode(struct DirectionNode *node) {
  * @param  y00            
  * @return    	Returns angle between points in degrees.
  */
-static int getAngleFromCoordinates(int x, int y) {
+static int getAngleFromCoordinates(int x0, int y0, int x1, int y1) {
+	int dy = y1 - y0;
+	int dx = x1 - x0;
+
 	// Assuming 0/2PI on left and PI on right.
-	return (int) (atan2(y, x) * 180 / PI + 180);
+	return (int) (atan2(dy, dx) * 180 / PI + 180);
 }
 
 static int getLengthFromCoordinates(int x0, int y0, int x1, int y1) {
@@ -170,15 +174,27 @@ static int compareTwoDirectionNodes(struct DirectionNode *node0, struct Directio
 	int diff_angle = min((node1->angle - node0->angle + 360) % 360, (node0->angle - node1->angle + 360) % 360);
 	int diff_length = abs(node1->length - node0->length);
 
+	int diff_angle_error = 100 * diff_angle / node0->angle;
+	int diff_length_error = 100 * diff_length / node0->length;
+
 	int comparison;
 
-	if (diff_length < thresh->length) {
-		comparison = 0;
-	} else if (diff_angle < thresh->angle) {
+	// if (diff_length < thresh->length) {
+	// 	comparison = 0;
+	// } else if (diff_angle < thresh->angle) {
+	// 	comparison = 0;
+	// } else {
+	// 	comparison = 1;
+	// }
+
+	if (((diff_angle < thresh->angle) || (diff_angle_error < ANGLE_PERCENT_ERROR)) 
+		|| ((diff_length < thresh->length) || (diff_length_error < LENGTH_PERCENT_ERROR))) {
 		comparison = 0;
 	} else {
 		comparison = 1;
 	}
+
+	// printf("----- %d,%d,%d,%d,%d\n", diff_angle, diff_angle_error, diff_length, diff_length_error, comparison);
 
 	return comparison;
 }

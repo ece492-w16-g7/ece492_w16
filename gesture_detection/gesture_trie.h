@@ -13,6 +13,9 @@
 #define SEQUENCE_ADDED		3000
 #define INVALID_SEQUENCE   	-100
 
+#define ANGLE_PERCENT_ERROR		20
+#define LENGTH_PERCENT_ERROR 	20
+
 struct DirectionNode {
     int angle;
     int length;
