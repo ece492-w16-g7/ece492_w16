@@ -5,6 +5,12 @@
 
 #include "gesture_trie.h"
 
+#define HIT 						31
+#define MISS 						30
+
+#define REPEAT 						41
+#define CONTINUE					40
+
 #define GESTURE_STRING_BUFFER_SIZE 	20
 
 static void randomizeXY(int *x, int *y, int range);
@@ -16,7 +22,7 @@ int main(int argc, char *argv[]) {
 		exit(0);
 	}
 
-	int old_x, old_y, x, y, direction_code;
+	int old_x, old_y, x, y, direction_code, last_point_status, repeat_flag;
 	int randomize_number = atoi(argv[2]);
 
 	struct Threshold thresh;
@@ -37,15 +43,22 @@ int main(int argc, char *argv[]) {
 
 	old_x = 0;
 	old_y = 0;
+	last_point_status = MISS;
+	repeat_flag = CONTINUE;
 
 	struct DirectionNode *current = getBase();
 	printTrie(current);
 
 	struct DirectionNode *incoming_node;
-	int i = 0;
+	int i = -1;
 	while (feof(file) == 0) {
-		fscanf(file, "%d,%d\n", &x, &y);
-		randomizeXY(&x, &y, randomize_number);
+		if (repeat_flag == CONTINUE) {
+			fscanf(file, "%d,%d\n", &x, &y);			
+			randomizeXY(&x, &y, randomize_number);
+			i++;
+		} else {
+			repeat_flag = CONTINUE;
+		}
 		
 		incoming_node = createDirectionNode(old_x, old_y, x, y, NO_GESTURE);
 		current = nextDirectionNode(incoming_node, current, &direction_code, &thresh);
@@ -53,21 +66,32 @@ int main(int argc, char *argv[]) {
 		printf("%d,%d,%d,%d,%d", i, x, y, incoming_node->angle, incoming_node->length);
 
 		if (current) {
+			// Leaf node
 			if (current->gesture_code != NO_GESTURE) {
-				printf(",%d\n", current->gesture_code);
+				printf(",#%d\n", current->gesture_code);
 				current = getBase();
+				
+				last_point_status = MISS;
+				old_x = 0;
+				old_y = 0;
 			} else {
 				printf(",h\n");
+				last_point_status = HIT;
+				old_x = x;
+				old_y = y;
 			}
 		} else {
+			if (last_point_status == HIT) {
+				last_point_status = MISS;
+				old_x = 0;
+				old_y = 0;
+				repeat_flag = REPEAT;
+			}
+
 			current = getBase();
 			printf(",m\n");
 		}
 
-		old_x = x;
-		old_y = y;
-
-		i++;
 		usleep(100);
 	}
 }
@@ -82,6 +106,10 @@ static void storeGestureFromFile(char *filename, int gesture_code, struct Thresh
 		printf("File didn't open\n");
 		exit(0);
 	}
+
+	gesture[0][0] = 0;
+	gesture[0][1] = 0;
+	i++;
 
 	while ((i < GESTURE_STRING_BUFFER_SIZE) && (feof(file) == 0)) {
 		fscanf(file, "%d,%d\n", &gesture[i][0], &gesture[i][1]);

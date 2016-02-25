@@ -90,6 +90,8 @@ int addGesture(int gesture_code, int n, int gesture_sequence[n][2], struct Thres
 			addChild(direction_node, incoming_node);
 			direction_node = incoming_node;
 		}
+
+		// printf("%d,%d,%d,%d,%d,h\n", i, gesture_sequence[i][0], gesture_sequence[i][1], direction_node->angle, direction_node->length);
 	}
 
 	// Last leaf node so we change gesture_code.
@@ -165,7 +167,7 @@ static int getLengthFromCoordinates(int x0, int y0, int x1, int y1) {
  * @return          Returns 0 if angles are similar. Otherwise, 1.
  */
 static int compareTwoDirectionNodes(struct DirectionNode *node0, struct DirectionNode *node1, struct Threshold *thresh) {
-	int diff_angle = min((node1->angle - node0->angle + 360) % 361, (node0->angle - node1->angle + 360) % 361);
+	int diff_angle = min((node1->angle - node0->angle + 360) % 360, (node0->angle - node1->angle + 360) % 360);
 	int diff_length = abs(node1->length - node0->length);
 
 	int comparison;
