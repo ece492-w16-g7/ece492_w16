@@ -445,6 +445,7 @@ set_location_assignment PIN_V24 -to GPIO_1[32]
 set_location_assignment PIN_V23 -to GPIO_1[33]
 set_location_assignment PIN_W25 -to GPIO_1[34]
 set_location_assignment PIN_W23 -to GPIO_1[35]
+set_location_assignment PIN_C16 -to TD_CLK27
 
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 
