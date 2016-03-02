@@ -1,11 +1,9 @@
 #include "gesture_trie.h"
 
-static int getAngleFromCoordinates(int x0, int y0, int x1, int y1);
 static int getLengthFromCoordinates(int x0, int y0, int x1, int y1);
 static int compareTwoDirectionNodes(struct DirectionNode *node0, struct DirectionNode *node1, struct Threshold *thresh);
 static void addChild(struct DirectionNode *parent, struct DirectionNode *child);
 static struct ChildNode *createChildNode(struct DirectionNode *direction_node);
-static int min(int a, int b);
 
 /**
  * Returns base of tree. Note that this stores a static variable.
@@ -14,7 +12,7 @@ static int min(int a, int b);
 struct DirectionNode *getBase(void) {
 	static struct DirectionNode *base = NULL;
 	if (base == NULL) {
-		base = createDirectionNode(0, 0, 0, 0, NO_GESTURE);
+		base = createDirectionNode(0, 0, NO_GESTURE);
 	}
 	return base;
 }
@@ -139,20 +137,6 @@ void printNode(struct DirectionNode *node) {
 	printf("(%d,%d)\n", node->x, node->y);
 }
 
-/**
- * Finds angle between two points.
- * @param  x            
- * @param  y00            
- * @return    	Returns angle between points in degrees.
- */
-static int getAngleFromCoordinates(int x0, int y0, int x1, int y1) {
-	int dy = y1 - y0;
-	int dx = x1 - x0;
-
-	// Assuming 0/2PI on left and PI on right.
-	return (int) (atan2(dy, dx) * 180 / PI + 180);
-}
-
 static int getLengthFromCoordinates(int x0, int y0, int x1, int y1) {
 	int dy = y1 - y0;
 	int dx = x1 - x0;
@@ -168,12 +152,11 @@ static int getLengthFromCoordinates(int x0, int y0, int x1, int y1) {
  * @return          Returns 0 if angles are similar. Otherwise, 1.
  */
 static int compareTwoDirectionNodes(struct DirectionNode *node0, struct DirectionNode *node1, struct Threshold *thresh) {
-	int diff_x = abs(node0->x - node1->x);
-	int diff_y = abs(node0->y - node1->y);
+	int length = getLengthFromCoordinates(node0->x, node0->y, node1->x, node1->y);
 
 	int comparison;
 
-	if ((diff_x < thresh->radius) && (diff_y < thresh->radius)) {
+	if (length < thresh->radius) {
 		comparison = 0;
 	} else {
 		comparison = 1;
@@ -206,8 +189,4 @@ static struct ChildNode *createChildNode(struct DirectionNode *direction_node) {
 	child_node->next = NULL;
 
 	return child_node;
-}
-
-static int min(int a, int b) {
-	return a < b ? a : b;
 }

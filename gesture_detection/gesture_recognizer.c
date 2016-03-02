@@ -17,8 +17,8 @@ static void randomizeXY(int *x, int *y, int range);
 static void storeGestureFromFile(char *filename, int gesture_code, struct Threshold *thresh);
 
 int main(int argc, char *argv[]) {
-	if ((argc < 7) || ((argc % 2) == 0)) {
-		printf("./main <raw_position_data> <randomize_n> <angle_thresh> <length_thresh> <gesture_positions> <gesture_code> ...\n");
+	if ((argc < 6) || ((argc % 2) == 1)) {
+		printf("./main <raw_position_data> <randomize_n> <radius_thresh> <gesture_positions> <gesture_code> ...\n");
 		exit(0);
 	}
 
