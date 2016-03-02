@@ -4,6 +4,7 @@
 #include <time.h>
 
 #include "gesture_trie.h"
+#include "simple_queue.h"
 
 #define HIT 						31
 #define MISS 						30
@@ -22,7 +23,7 @@ int main(int argc, char *argv[]) {
 		exit(0);
 	}
 
-	int old_x, old_y, x, y, direction_code, last_point_status, repeat_flag;
+	int old_x, old_y, x, y, direction_code, repeat_flag;
 	int randomize_number = atoi(argv[2]);
 
 	struct Threshold thresh;
@@ -43,8 +44,9 @@ int main(int argc, char *argv[]) {
 
 	old_x = 0;
 	old_y = 0;
-	last_point_status = MISS;
 	repeat_flag = CONTINUE;
+
+	clearQueue();
 
 	struct DirectionNode *current = getBase();
 	printTrie(current);
@@ -57,7 +59,10 @@ int main(int argc, char *argv[]) {
 			randomizeXY(&x, &y, randomize_number);
 			i++;
 		} else {
-			repeat_flag = CONTINUE;
+			getXYFromQueue(&x, &y);
+			if (getQueueSize() == 0) {
+				repeat_flag = CONTINUE;
+			}
 		}
 		
 		incoming_node = createDirectionNode(old_x, old_y, x, y, NO_GESTURE);
@@ -71,18 +76,22 @@ int main(int argc, char *argv[]) {
 				printf(",#%d\n", current->gesture_code);
 				current = getBase();
 				
-				last_point_status = MISS;
 				old_x = 0;
 				old_y = 0;
 			} else {
 				printf(",h\n");
-				last_point_status = HIT;
 				old_x = x;
 				old_y = y;
 			}
+
+			if (repeat_flag == CONTINUE)
+				addXYToQueue(x, y);
+
 		} else {
-			if (last_point_status == HIT) {
-				last_point_status = MISS;
+			if (getQueueSize() > 0) {
+				getXYFromQueue(&old_x, &old_y);	
+				addXYToQueue(x, y);
+
 				old_x = 0;
 				old_y = 0;
 				repeat_flag = REPEAT;
