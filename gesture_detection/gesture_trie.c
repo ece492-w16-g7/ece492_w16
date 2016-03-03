@@ -1,11 +1,8 @@
 #include "gesture_trie.h"
 
-static int getAngleFromCoordinates(int x0, int y0, int x1, int y1);
-static int getLengthFromCoordinates(int x0, int y0, int x1, int y1);
-static int compareTwoDirectionNodes(struct DirectionNode *node0, struct DirectionNode *node1, struct Threshold *thresh);
+static int getGridNumFromCoordinates(int x, int y);
 static void addChild(struct DirectionNode *parent, struct DirectionNode *child);
 static struct ChildNode *createChildNode(struct DirectionNode *direction_node);
-static int min(int a, int b);
 
 /**
  * Returns base of tree. Note that this stores a static variable.
@@ -14,7 +11,7 @@ static int min(int a, int b);
 struct DirectionNode *getBase(void) {
 	static struct DirectionNode *base = NULL;
 	if (base == NULL) {
-		base = createDirectionNode(0, 0, 0, 0, NO_GESTURE);
+		base = createDirectionNode(0, 0, NO_GESTURE);
 	}
 	return base;
 }
@@ -29,7 +26,7 @@ struct DirectionNode *getBase(void) {
  * @return              Returns NULL if DNE. Else, returns child with correct angle. Will
  *                      set gesture_code if leaf node.
  */
-struct DirectionNode *nextDirectionNode(struct DirectionNode *next, struct DirectionNode *current, int *gesture_code, struct Threshold *thresh) {
+struct DirectionNode *nextDirectionNode(struct DirectionNode *next, struct DirectionNode *current, int *gesture_code) {
 	struct DirectionNode *search_direction_node;
 	*gesture_code = NO_GESTURE;	
 
@@ -38,7 +35,7 @@ struct DirectionNode *nextDirectionNode(struct DirectionNode *next, struct Direc
 	while (search_child_node != NULL) {
 		search_direction_node = search_child_node->direction_node;
 
-		if (compareTwoDirectionNodes(search_direction_node, next, thresh) == 0) {
+		if (compareTwoDirectionNodes(search_direction_node, next) == NODES_SAME) {
 			if (search_direction_node->gesture_code != NO_GESTURE) {
 				*gesture_code = search_direction_node->gesture_code;
 			}
@@ -66,17 +63,21 @@ struct DirectionNode *nextDirectionNode(struct DirectionNode *next, struct Direc
  * @param  thresh 			The angle and length threshold used to compare angles.
  * @return                  Returns 0 if successful and -1 if error.
  */
-int addGesture(int gesture_code, int n, int gesture_sequence[n][2], struct Threshold *thresh) {
-	struct DirectionNode *direction_node, *incoming_node, *search_node;
+int addGesture(int gesture_code, int n, int gesture_sequence[n][2]) {
+	struct DirectionNode *direction_node, *incoming_node, *last_incoming_node, *search_node;
 	int gesture_code_found = NO_GESTURE;
 
 	direction_node = getBase();
+	last_incoming_node = getBase();
 
-	for (int i=1; i<n; i++) {
-		incoming_node = createDirectionNode(gesture_sequence[i-1][0], gesture_sequence[i-1][1], gesture_sequence[i][0], gesture_sequence[i][1], NO_GESTURE);
-		search_node = nextDirectionNode(incoming_node, direction_node, &gesture_code_found, thresh);
+	for (int i=0; i<n; i++) {
+		incoming_node = createDirectionNode(gesture_sequence[i][0], gesture_sequence[i][1], NO_GESTURE);
 
-		// printf("- (%d,%d) (%d,%d) %d %d\n", gesture_sequence[i-1][0], gesture_sequence[i-1][1], gesture_sequence[i][0], gesture_sequence[i][1], incoming_node->angle, incoming_node->length);
+		if (compareTwoDirectionNodes(incoming_node, last_incoming_node) == NODES_SAME) {
+			continue;
+		}
+
+		search_node = nextDirectionNode(incoming_node, direction_node, &gesture_code_found);
 
 		if (search_node != NULL) {
 			// Direction already exists in tree.
@@ -92,7 +93,7 @@ int addGesture(int gesture_code, int n, int gesture_sequence[n][2], struct Thres
 			direction_node = incoming_node;
 		}
 
-		// printf("%d,%d,%d,%d,%d,h\n", i, gesture_sequence[i][0], gesture_sequence[i][1], direction_node->angle, direction_node->length);
+		last_incoming_node = incoming_node;
 	}
 
 	// Last leaf node so we change gesture_code.
@@ -102,21 +103,17 @@ int addGesture(int gesture_code, int n, int gesture_sequence[n][2], struct Thres
 }
 
 /**
- * @param  x0
- * @param  y0
- * @param  x1
- * @param  y1
+ * @param  x
+ * @param  y
  * @param  gesture_code gesture_code should be NO_GESTURE if not a leaf DirectionNode.
  * @return              Returns created DirectionNode.
  */ 
-struct DirectionNode *createDirectionNode(int x0, int y0, int x1, int y1, int gesture_code) {
-	int angle = getAngleFromCoordinates(x0, y0, x1, y1);
-	int length = getLengthFromCoordinates(x0, y0, x1, y1);
+struct DirectionNode *createDirectionNode(int x, int y, int gesture_code) {
+	int grid_num = getGridNumFromCoordinates(x, y);
 
 	struct DirectionNode *direction_node = (struct DirectionNode *) malloc(sizeof(struct DirectionNode));
 
-	direction_node->angle = angle;
-	direction_node->length = length;
+	direction_node->grid_num = grid_num;
 	direction_node->parent = NULL;
 	direction_node->children = NULL;
 	direction_node->gesture_code = gesture_code;
@@ -126,9 +123,9 @@ struct DirectionNode *createDirectionNode(int x0, int y0, int x1, int y1, int ge
 
 void printTrie(struct DirectionNode *root) {
 	if (root->gesture_code != NO_GESTURE) { 
-		printf("(%d,%d) -- %d\n", root->angle, root->length, root->gesture_code);
+		printf("(%d) -- %d\n", root->grid_num, root->gesture_code);
 	} else {
-		printf("(%d,%d) ", root->angle, root->length);
+		printf("(%d) ", root->grid_num);
 	}
 
 	struct ChildNode *child = root->children;
@@ -139,28 +136,22 @@ void printTrie(struct DirectionNode *root) {
 }
 
 void printNode(struct DirectionNode *node) {
-	printf("(%d,%d)\n", node->angle, node->length);
+	printf("(%d)\n", node->grid_num);
 }
 
-/**
- * Finds angle between two points.
- * @param  x            
- * @param  y00            
- * @return    	Returns angle between points in degrees.
- */
-static int getAngleFromCoordinates(int x0, int y0, int x1, int y1) {
-	int dy = y1 - y0;
-	int dx = x1 - x0;
+static int getGridNumFromCoordinates(int x, int y) {
+	int col = x / GRID_SIZE;
+	int row = y / GRID_SIZE;
 
-	// Assuming 0/2PI on left and PI on right.
-	return (int) (atan2(dy, dx) * 180 / PI + 180);
+	return row * GRID_TOT_COL + col;
 }
 
-static int getLengthFromCoordinates(int x0, int y0, int x1, int y1) {
-	int dy = y1 - y0;
-	int dx = x1 - x0;
+static int getColFromGridNum(int grid_num) {
+	return grid_num % GRID_TOT_COL;
+}
 
-	return (int) (sqrt(pow(dx, 2) + pow(dy, 2)));
+static int getRowFromGridNum(int grid_num) {
+	return grid_num / GRID_TOT_COL;
 }
 
 /**
@@ -170,31 +161,20 @@ static int getLengthFromCoordinates(int x0, int y0, int x1, int y1) {
  * @param  thresh 	The angle and length thresholds are used to compare nodes.
  * @return          Returns 0 if angles are similar. Otherwise, 1.
  */
-static int compareTwoDirectionNodes(struct DirectionNode *node0, struct DirectionNode *node1, struct Threshold *thresh) {
-	int diff_angle = min((node1->angle - node0->angle + 360) % 360, (node0->angle - node1->angle + 360) % 360);
-	int diff_length = abs(node1->length - node0->length);
-
-	int diff_angle_error = 100 * diff_angle / node0->angle;
-	int diff_length_error = 100 * diff_length / node0->length;
+int compareTwoDirectionNodes(struct DirectionNode *node0, struct DirectionNode *node1) {
+	int col0 = getColFromGridNum(node0->grid_num);
+	int row0 = getRowFromGridNum(node0->grid_num);
+	int col1 = getColFromGridNum(node1->grid_num);
+	int row1 = getRowFromGridNum(node1->grid_num);
 
 	int comparison;
 
-	// if (diff_length < thresh->length) {
-	// 	comparison = 0;
-	// } else if (diff_angle < thresh->angle) {
-	// 	comparison = 0;
-	// } else {
-	// 	comparison = 1;
-	// }
-
-	if (((diff_angle < thresh->angle) || (diff_angle_error < ANGLE_PERCENT_ERROR)) 
-		|| ((diff_length < thresh->length) || (diff_length_error < LENGTH_PERCENT_ERROR))) {
-		comparison = 0;
+	if ((abs(col0 - col1) < GRID_NEIGHBOURS_THRESH) 
+		&& (abs(row0 - row1) < GRID_NEIGHBOURS_THRESH)) {
+		comparison = NODES_SAME;
 	} else {
-		comparison = 1;
+		comparison = NODES_DIFFERENT;
 	}
-
-	// printf("----- %d,%d,%d,%d,%d\n", diff_angle, diff_angle_error, diff_length, diff_length_error, comparison);
 
 	return comparison;
 }
@@ -223,8 +203,4 @@ static struct ChildNode *createChildNode(struct DirectionNode *direction_node) {
 	child_node->next = NULL;
 
 	return child_node;
-}
-
-static int min(int a, int b) {
-	return a < b ? a : b;
 }

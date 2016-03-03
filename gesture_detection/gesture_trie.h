@@ -5,20 +5,24 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define PI 					3.14159
-#define STATIONARY_ANGLE    1000
-
 #define NO_GESTURE	 	   	-200
 
 #define SEQUENCE_ADDED		3000
 #define INVALID_SEQUENCE   	-100
 
-#define ANGLE_PERCENT_ERROR		20
-#define LENGTH_PERCENT_ERROR 	20
+#define NODES_SAME			3010
+#define NODES_DIFFERENT		3011
+
+#define GRID_LENGTH			240
+#define GRID_WIDTH			320
+#define	GRID_SIZE			10
+#define GRID_TOT_COL		GRID_WIDTH / GRID_SIZE
+#define GRID_TOT_ROW		GRID_LENGTH / GRID_SIZE
+
+#define GRID_NEIGHBOURS_THRESH 	2
 
 struct DirectionNode {
-    int angle;
-    int length;
+	int grid_num;
     struct DirectionNode *parent;
     struct ChildNode *children;
     int gesture_code;
@@ -27,11 +31,6 @@ struct DirectionNode {
 struct ChildNode {
 	struct DirectionNode *direction_node;
 	struct ChildNode *next;
-};
-
-struct Threshold {
-	int angle;
-	int length;
 };
 
 /**
@@ -50,7 +49,7 @@ struct DirectionNode *getBase(void);
  * @return              Returns NULL if DNE. Else, returns child with correct angle. Will
  *                      set gesture_code if leaf node.
  */
-struct DirectionNode *nextDirectionNode(struct DirectionNode *next, struct DirectionNode *current, int *gesture_code, struct Threshold *thresh);
+struct DirectionNode *nextDirectionNode(struct DirectionNode *next, struct DirectionNode *current, int *gesture_code);
 
 /**
  * Adds a gesture sequence to the tree.
@@ -60,7 +59,7 @@ struct DirectionNode *nextDirectionNode(struct DirectionNode *next, struct Direc
  * @param  thresh 			The angle and length threshold used to compare angles.
  * @return                  Returns 0 if successful and -1 if error.
  */
-int addGesture(int gesture_code, int n, int gesture_sequence[n][2], struct Threshold *thresh);
+int addGesture(int gesture_code, int n, int gesture_sequence[n][2]);
 
 /**
  * @param  x0
@@ -70,8 +69,10 @@ int addGesture(int gesture_code, int n, int gesture_sequence[n][2], struct Thres
  * @param  gesture_code gesture_code should be NO_GESTURE if not a leaf DirectionNode.
  * @return              Returns created DirectionNode.
  */ 
-struct DirectionNode *createDirectionNode(int x0, int y0, int x1, int y1, int gesture_code);
+struct DirectionNode *createDirectionNode(int x, int y, int gesture_code);
 	
+int compareTwoDirectionNodes(struct DirectionNode *node0, struct DirectionNode *node1);
+
 void printTrie(struct DirectionNode *root);
 void printNode(struct DirectionNode *node);
 
