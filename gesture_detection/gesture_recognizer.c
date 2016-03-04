@@ -45,6 +45,7 @@ int main(int argc, char *argv[]) {
 		incoming_node = createDirectionNode(x, y, NO_GESTURE);
 
 		if (compareTwoDirectionNodes(incoming_node, last_incoming_node) == NODES_SAME) {
+			printf("%d,%d,%d,%d,c\n", i, x, y, incoming_node->grid_num);
 			continue;
 		}
 
@@ -62,6 +63,7 @@ int main(int argc, char *argv[]) {
 			}
 		} else {
 			current = getBase();
+			last_incoming_node = getBase();
 			printf(",m\n");
 		}
 
@@ -99,3 +101,5 @@ static void randomizeXY(int *x, int *y, int range) {
 	*x += random_x;
 	*y += random_y; 
 }
+
+//(0) (806) (651) (557) (526) (461) (428) (460) -- 10
