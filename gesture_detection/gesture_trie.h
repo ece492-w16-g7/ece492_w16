@@ -19,7 +19,7 @@
 #define GRID_TOT_COL		(GRID_WIDTH / GRID_SIZE)
 #define GRID_TOT_ROW		(GRID_LENGTH / GRID_SIZE)
 
-#define GRID_NEIGHBOURS_THRESH 	2
+#define GRID_NEIGHBOURS_THRESH 	3
 
 struct DirectionNode {
 	int grid_num;
@@ -49,7 +49,7 @@ struct DirectionNode *getBase(void);
  * @return              Returns NULL if DNE. Else, returns child with correct angle. Will
  *                      set gesture_code if leaf node.
  */
-struct DirectionNode *nextDirectionNode(struct DirectionNode *next, struct DirectionNode *current, int *gesture_code);
+struct DirectionNode *nextDirectionNode(struct DirectionNode *next, struct DirectionNode *current, struct DirectionNode *last, int *gesture_code);
 
 /**
  * Adds a gesture sequence to the tree.

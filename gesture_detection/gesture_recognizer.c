@@ -49,7 +49,7 @@ int main(int argc, char *argv[]) {
 			continue;
 		}
 
-		current = nextDirectionNode(incoming_node, current, &direction_code);
+		current = nextDirectionNode(incoming_node, current, last_incoming_node, &direction_code);
 
 		printf("%d,%d,%d,%d", i, x, y, incoming_node->grid_num);
 
@@ -58,7 +58,9 @@ int main(int argc, char *argv[]) {
 			if (current->gesture_code != NO_GESTURE) {
 				printf(",#%d\n", current->gesture_code);
 				current = getBase();
+				last_incoming_node = getBase();
 			} else {
+				last_incoming_node = incoming_node;
 				printf(",h\n");
 			}
 		} else {
@@ -67,7 +69,6 @@ int main(int argc, char *argv[]) {
 			printf(",m\n");
 		}
 
-		last_incoming_node = incoming_node;
 		usleep(100);
 	}
 }

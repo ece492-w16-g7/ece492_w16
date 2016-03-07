@@ -3,6 +3,7 @@
 static int getGridNumFromCoordinates(int x, int y);
 static void addChild(struct DirectionNode *parent, struct DirectionNode *child);
 static struct ChildNode *createChildNode(struct DirectionNode *direction_node);
+static int compareGridNums(int grid0_start, int grid0_end, int grid1_start, int grid1_end);
 
 /**
  * Returns base of tree. Note that this stores a static variable.
@@ -26,7 +27,7 @@ struct DirectionNode *getBase(void) {
  * @return              Returns NULL if DNE. Else, returns child with correct angle. Will
  *                      set gesture_code if leaf node.
  */
-struct DirectionNode *nextDirectionNode(struct DirectionNode *next, struct DirectionNode *current, int *gesture_code) {
+struct DirectionNode *nextDirectionNode(struct DirectionNode *next, struct DirectionNode *current, struct DirectionNode *last, int *gesture_code) {
 	struct DirectionNode *search_direction_node;
 	*gesture_code = NO_GESTURE;	
 
@@ -35,7 +36,7 @@ struct DirectionNode *nextDirectionNode(struct DirectionNode *next, struct Direc
 	while (search_child_node != NULL) {
 		search_direction_node = search_child_node->direction_node;
 
-		if (compareTwoDirectionNodes(search_direction_node, next) == NODES_SAME) {
+		if (compareGridNums(current->grid_num, search_direction_node->grid_num, last->grid_num, next->grid_num) == NODES_SAME) {
 			if (search_direction_node->gesture_code != NO_GESTURE) {
 				*gesture_code = search_direction_node->gesture_code;
 			}
@@ -77,7 +78,7 @@ int addGesture(int gesture_code, int n, int gesture_sequence[n][2]) {
 			continue;
 		}
 
-		search_node = nextDirectionNode(incoming_node, direction_node, &gesture_code_found);
+		search_node = nextDirectionNode(incoming_node, direction_node, last_incoming_node, &gesture_code_found);
 
 		if (search_node != NULL) {
 			// Direction already exists in tree.
@@ -171,6 +172,29 @@ int compareTwoDirectionNodes(struct DirectionNode *node0, struct DirectionNode *
 
 	if ((abs(col0 - col1) < GRID_NEIGHBOURS_THRESH) 
 		&& (abs(row0 - row1) < GRID_NEIGHBOURS_THRESH)) {
+		comparison = NODES_SAME;
+	} else {
+		comparison = NODES_DIFFERENT;
+	}
+
+	return comparison;
+}
+
+static int compareGridNums(int grid0_start, int grid0_end, int grid1_start, int grid1_end) {
+	if ((grid1_start == 0) && (grid0_start == 0)) {
+		return NODES_SAME;
+	}
+
+	int dy_0 = getRowFromGridNum(grid0_end) - getRowFromGridNum(grid0_start);
+	int dx_0 = getColFromGridNum(grid0_end) - getColFromGridNum(grid0_start);
+
+	int dy_1 = getRowFromGridNum(grid1_end) - getRowFromGridNum(grid1_start);
+	int dx_1 = getColFromGridNum(grid1_end) - getColFromGridNum(grid1_start);
+
+	int comparison;
+
+	if ((abs(dy_0 - dy_1) < GRID_NEIGHBOURS_THRESH) 
+		&& (abs(dx_0 - dx_1) < GRID_NEIGHBOURS_THRESH)) {
 		comparison = NODES_SAME;
 	} else {
 		comparison = NODES_DIFFERENT;
