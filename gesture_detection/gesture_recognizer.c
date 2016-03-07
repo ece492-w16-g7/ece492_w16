@@ -92,10 +92,10 @@ int main(int argc, char *argv[]) {
 				getXYFromQueue(&old_x, &old_y);	
 				addXYToQueue(x, y);
 
-				old_x = 0;
-				old_y = 0;
 				repeat_flag = REPEAT;
 			}
+			old_x = 0;
+			old_y = 0;
 
 			current = getBase();
 			printf(",m\n");
