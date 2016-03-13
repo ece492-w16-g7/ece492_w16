@@ -15,11 +15,12 @@
 
 #define GRID_LENGTH			240
 #define GRID_WIDTH			320
-#define	GRID_SIZE			10
+#define	GRID_SIZE			20
 #define GRID_TOT_COL		(GRID_WIDTH / GRID_SIZE)
 #define GRID_TOT_ROW		(GRID_LENGTH / GRID_SIZE)
 
-#define GRID_NEIGHBOURS_THRESH 	3
+#define GRID_NEIGHBOURS_THRESH 	2
+#define GRID_DIFF_THRESH		2
 
 #define PI 						3.14159
 #define ANG_THRESH				20

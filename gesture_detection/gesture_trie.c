@@ -207,14 +207,10 @@ static int compareGridNums(int grid0_start, int grid0_end, int grid1_start, int 
 	int dy_1 = row1end - row1start;
 	int dx_1 = col1end - col1start;
 
-	int ang0 = atan2(dy_0, dx_0) * 180 / PI + 180; 
-	int ang1 = atan2(dy_1, dx_1) * 180 / PI + 180; 
-
 	int comparison;
 
-	// if ((abs(dy_0 - dy_1) < GRID_NEIGHBOURS_THRESH) 
-	// 	&& (abs(dx_0 - dx_1) < GRID_NEIGHBOURS_THRESH)) {
-	if (abs(ang1 - ang0) < ANG_THRESH) {
+	if ((abs(dy_0 - dy_1) < GRID_DIFF_THRESH) 
+		&& (abs(dx_0 - dx_1) < GRID_DIFF_THRESH)) {
 		comparison = NODES_SAME;
 	} else {
 		comparison = NODES_DIFFERENT;

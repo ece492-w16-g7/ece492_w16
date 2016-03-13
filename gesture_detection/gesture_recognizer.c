@@ -45,13 +45,13 @@ int main(int argc, char *argv[]) {
 		incoming_node = createDirectionNode(x, y, NO_GESTURE);
 
 		if (compareTwoDirectionNodes(incoming_node, last_incoming_node) == NODES_SAME) {
-			printf("%d,%d,%d,%d,c\n", i, x, y, incoming_node->grid_num);
+		printf("%d,%d,%d,%d,%d,%d,c\n", i, x, y, incoming_node->grid_num, incoming_node->grid_num / GRID_TOT_COL, incoming_node->grid_num % GRID_TOT_COL);
 			continue;
 		}
 
 		current = nextDirectionNode(incoming_node, current, last_incoming_node, &direction_code);
 
-		printf("%d,%d,%d,%d", i, x, y, incoming_node->grid_num);
+		printf("%d,%d,%d,%d,%d,%d", i, x, y, incoming_node->grid_num, incoming_node->grid_num / GRID_TOT_COL, incoming_node->grid_num % GRID_TOT_COL);
 
 		if (current) {
 			// Leaf node
