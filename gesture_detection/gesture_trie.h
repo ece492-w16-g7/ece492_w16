@@ -21,6 +21,9 @@
 
 #define GRID_NEIGHBOURS_THRESH 	3
 
+#define PI 						3.14159
+#define ANG_THRESH				20
+
 struct DirectionNode {
 	int grid_num;
     struct DirectionNode *parent;

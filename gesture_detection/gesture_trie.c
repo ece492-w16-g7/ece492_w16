@@ -184,17 +184,37 @@ static int compareGridNums(int grid0_start, int grid0_end, int grid1_start, int 
 	if ((grid1_start == 0) && (grid0_start == 0)) {
 		return NODES_SAME;
 	}
+	int row0end = getRowFromGridNum(grid0_end);
+	int col0end = getColFromGridNum(grid0_end);
 
-	int dy_0 = getRowFromGridNum(grid0_end) - getRowFromGridNum(grid0_start);
-	int dx_0 = getColFromGridNum(grid0_end) - getColFromGridNum(grid0_start);
+	int row0start = getRowFromGridNum(grid0_start);
+	int col0start = getColFromGridNum(grid0_start);	
 
-	int dy_1 = getRowFromGridNum(grid1_end) - getRowFromGridNum(grid1_start);
-	int dx_1 = getColFromGridNum(grid1_end) - getColFromGridNum(grid1_start);
+	int row1end = getRowFromGridNum(grid1_end);
+	int col1end = getColFromGridNum(grid1_end);
+
+	int row1start = getRowFromGridNum(grid1_start);
+	int col1start = getColFromGridNum(grid1_start);
+
+	// int dy_0 = getRowFromGridNum(grid0_end) - getRowFromGridNum(grid0_start);
+	// int dx_0 = getColFromGridNum(grid0_end) - getColFromGridNum(grid0_start);
+
+	// int dy_1 = getRowFromGridNum(grid1_end) - getRowFromGridNum(grid1_start);
+	// int dx_1 = getColFromGridNum(grid1_end) - getColFromGridNum(grid1_start);
+	
+	int dy_0 = row0end - row0start;
+	int dx_0 = col0end - col0start;
+	int dy_1 = row1end - row1start;
+	int dx_1 = col1end - col1start;
+
+	int ang0 = atan2(dy_0, dx_0) * 180 / PI + 180; 
+	int ang1 = atan2(dy_1, dx_1) * 180 / PI + 180; 
 
 	int comparison;
 
-	if ((abs(dy_0 - dy_1) < GRID_NEIGHBOURS_THRESH) 
-		&& (abs(dx_0 - dx_1) < GRID_NEIGHBOURS_THRESH)) {
+	// if ((abs(dy_0 - dy_1) < GRID_NEIGHBOURS_THRESH) 
+	// 	&& (abs(dx_0 - dx_1) < GRID_NEIGHBOURS_THRESH)) {
+	if (abs(ang1 - ang0) < ANG_THRESH) {
 		comparison = NODES_SAME;
 	} else {
 		comparison = NODES_DIFFERENT;
