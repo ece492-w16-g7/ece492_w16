@@ -15,7 +15,7 @@
 
 #define GRID_LENGTH			240
 #define GRID_WIDTH			320
-#define	GRID_SIZE			20
+#define	GRID_SIZE			10
 #define GRID_TOT_COL		(GRID_WIDTH / GRID_SIZE)
 #define GRID_TOT_ROW		(GRID_LENGTH / GRID_SIZE)
 
@@ -72,9 +72,9 @@ int addGesture(int gesture_code, int n, int gesture_sequence[n][2]);
  * @param  y1
  * @param  gesture_code gesture_code should be NO_GESTURE if not a leaf DirectionNode.
  * @return              Returns created DirectionNode.
- */ 
+ */
 struct DirectionNode *createDirectionNode(int x, int y, int gesture_code);
-	
+
 int compareTwoDirectionNodes(struct DirectionNode *node0, struct DirectionNode *node1);
 
 void printTrie(struct DirectionNode *root);
