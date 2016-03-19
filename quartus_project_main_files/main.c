@@ -32,6 +32,8 @@
 #include "includes.h"
 #include "altera_up_avalon_character_lcd.h"
 
+#define POSITION_ON_LCD
+
 /* Definition of Task Stacks */
 #define   TASK_STACKSIZE       2048
 
