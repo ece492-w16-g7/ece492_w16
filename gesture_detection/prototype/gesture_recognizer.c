@@ -31,10 +31,13 @@ int main(int argc, char *argv[]) {
 		exit(0);
 	}
 
-	struct DirectionNode *current = getBase();
-	printTrie(current);
+	struct SearchNode *storage_base = getBase();
+	printStorage(storage_base);
 
-	struct DirectionNode *incoming_node, *last_incoming_node = getBase();
+	struct DirectionNode *incoming_node, *last_incoming_node, *base;
+	last_incoming_node = getDummyBase();
+
+	int mode = SEARCH_MODE;
 
 	int i = -1;
 	while (feof(file) == 0) {
@@ -45,29 +48,34 @@ int main(int argc, char *argv[]) {
 		incoming_node = createDirectionNode(x, y, NO_GESTURE);
 
 		if (compareTwoDirectionNodes(incoming_node, last_incoming_node) == NODES_SAME) {
-		printf("%d,%d,%d,%d,%d,%d,c\n", i, x, y, incoming_node->grid_num, incoming_node->grid_num / GRID_TOT_COL, incoming_node->grid_num % GRID_TOT_COL);
+			printf("%d,%d,%d,%d,%d,%d,c\n", i, x, y, incoming_node->grid_num, incoming_node->grid_num / GRID_TOT_COL, incoming_node->grid_num % GRID_TOT_COL);
 			continue;
 		}
 
-		current = nextDirectionNode(incoming_node, current, last_incoming_node, &direction_code);
+		if (mode == SEARCH_MODE) {
+			base = firstDirectionNode(incoming_node, last_incoming_node);
+		} else {
+			base = nextDirectionNode(incoming_node, base, last_incoming_node, &direction_code);
+		}
 
 		printf("%d,%d,%d,%d,%d,%d", i, x, y, incoming_node->grid_num, incoming_node->grid_num / GRID_TOT_COL, incoming_node->grid_num % GRID_TOT_COL);
 
-		if (current) {
+		if (base) {
 			// Leaf node
-			if (current->gesture_code != NO_GESTURE) {
-				printf(",#%d\n", current->gesture_code);
-				current = getBase();
-				last_incoming_node = getBase();
+			if (base->gesture_code != NO_GESTURE) {
+				printf(",#%d\n", base->gesture_code);
+				mode = SEARCH_MODE;
 			} else {
-				last_incoming_node = incoming_node;
+				mode = FOLLOW_MODE;
 				printf(",h\n");
 			}
 		} else {
-			current = getBase();
-			last_incoming_node = getBase();
+			mode = SEARCH_MODE;
 			printf(",m\n");
 		}
+
+		free(last_incoming_node);
+		last_incoming_node = incoming_node;
 
 		usleep(100);
 	}

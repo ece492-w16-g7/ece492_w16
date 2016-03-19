@@ -25,59 +25,39 @@
 #define PI 						3.14159
 #define ANG_THRESH				20
 
+#define SEARCH_MODE 			500
+#define FOLLOW_MODE				501
+
 struct DirectionNode {
 	int grid_num;
     struct DirectionNode *parent;
-    struct ChildNode *children;
+    struct ChildDirectionNode *children;
     int gesture_code;
 };
 
-struct ChildNode {
+struct ChildDirectionNode {
 	struct DirectionNode *direction_node;
-	struct ChildNode *next;
+	struct ChildDirectionNode *next;
 };
 
-/**
- * Returns base of tree. Note that this stores a static variable.
- * @return  Returns pointer to base of tree.
- */
-struct DirectionNode *getBase(void);
+struct SearchNode {
+	struct DirectionNode *first;
+	struct DirectionNode *second;
+	struct SearchNode *next;
+};
 
-/**
- * Finds the next node to move to given an angle and the current direction.
- * @param  next        	The searching node.
- * @param  current      The current node.
- * @param  gesture_code Pointer to an int for returning gesture_code. Set to gesture_code
- *                      only if a leaf node is found. Otherwise, set to NO_GESTURE.
- * @param  thresh 		The angle and length threshold used to compare angles.
- * @return              Returns NULL if DNE. Else, returns child with correct angle. Will
- *                      set gesture_code if leaf node.
- */
-struct DirectionNode *nextDirectionNode(struct DirectionNode *next, struct DirectionNode *current, struct DirectionNode *last, int *gesture_code);
+struct SearchNode *getBase(void);
+struct DirectionNode *getDummyBase(void);
 
-/**
- * Adds a gesture sequence to the tree.
- * @param  gesture_code     The gesture code for the given gesture.
- * @param  gesture_sequence An int array with x,y coordinates.
- * @param  n                The number of points in the gesture.
- * @param  thresh 			The angle and length threshold used to compare angles.
- * @return                  Returns 0 if successful and -1 if error.
- */
+struct DirectionNode *firstDirectionNode(struct DirectionNode *current, struct DirectionNode *last);
+struct DirectionNode *nextDirectionNode(struct DirectionNode *current, struct DirectionNode *base, struct DirectionNode *last, int *gesture_code);
+
 int addGesture(int gesture_code, int n, int gesture_sequence[n][2]);
 
-/**
- * @param  x0
- * @param  y0
- * @param  x1
- * @param  y1
- * @param  gesture_code gesture_code should be NO_GESTURE if not a leaf DirectionNode.
- * @return              Returns created DirectionNode.
- */
 struct DirectionNode *createDirectionNode(int x, int y, int gesture_code);
 
 int compareTwoDirectionNodes(struct DirectionNode *node0, struct DirectionNode *node1);
 
-void printTrie(struct DirectionNode *root);
-void printNode(struct DirectionNode *node);
+void printStorage(struct SearchNode *root);
 
 #endif
