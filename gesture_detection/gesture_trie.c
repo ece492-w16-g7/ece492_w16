@@ -1,47 +1,81 @@
 #include "gesture_trie.h"
 
 static int getGridNumFromCoordinates(int x, int y);
-static void addChild(struct DirectionNode *parent, struct DirectionNode *child);
-static struct ChildNode *createChildNode(struct DirectionNode *direction_node);
-static int compareGridNums(int grid0_start, int grid0_end, int grid1_start, int grid1_end);
-static struct DirectionNode *createTrie(void);
+static int getColFromGridNum(int grid_num);
+static int getRowFromGridNum(int grid_num);
+
+static void printDirectionNode(struct DirectionNode *root);
+
+static int compareFourDirectionNodes(struct DirectionNode *grid0_start, struct DirectionNode *grid0_end, struct DirectionNode *grid1_start, struct DirectionNode *grid1_end);
+
+static void addDirectionNodeChild(struct DirectionNode *parent, struct DirectionNode *child);
+static struct ChildDirectionNode *createChildDirectionNode(struct DirectionNode *direction_node);
+static void addSearchNode(struct DirectionNode *first, struct DirectionNode *second);
+static struct SearchNode *createSearchNode(struct DirectionNode *first, struct DirectionNode *second);
+
+
+struct DirectionNode *getDummyBase(void) {
+	struct SearchNode *base = getBase();
+	return base->second;
+}
 
 /**
  * Returns base of tree. Note that this stores a static variable.
  * @return  Returns pointer to base of tree.
  */
-struct DirectionNode *getBase(void) {
-	static struct DirectionNode *base = NULL;
+struct SearchNode *getBase(void) {
+	static struct SearchNode *base = NULL;
 	if (base == NULL) {
-		base = createTrie();
+		struct DirectionNode *dummy = createDirectionNode(0, 0, NO_GESTURE);
+		base = createSearchNode(dummy, dummy);
 	}
 	return base;
 }
 
 /**
+ * Finds the first direction node for a gesture.
+ * @param  current The node that is searched for.
+ * @param  last    The last node.
+ * @return         Returns NULL if DNE. Else returns DirectionNode.
+ */
+struct DirectionNode *firstDirectionNode(struct DirectionNode *current, struct DirectionNode *last) {
+	struct SearchNode *base = getBase();
+
+	while (base != NULL) {
+		if (compareFourDirectionNodes(base->first, base->second, last, current) == NODES_SAME) {
+			return base->second;
+		}
+
+		base = base->next;
+	}
+
+	return NULL;
+}
+
+/**
  * Finds the next node to move to given an angle and the current direction.
- * @param  next        	The searching node.
- * @param  current      The current node.
+ * @param  current     	The node that is searched for.
+ * @param  base      	The current base.
+ * @param  last 		The last node.
  * @param  gesture_code Pointer to an int for returning gesture_code. Set to gesture_code
  *                      only if a leaf node is found. Otherwise, set to NO_GESTURE.
- * @param  thresh 		The angle and length threshold used to compare angles.
- * @return              Returns NULL if DNE. Else, returns child with correct angle. Will
+ * @return              Returns NULL if DNE. Else, returns child. Will
  *                      set gesture_code if leaf node.
  */
-struct DirectionNode *nextDirectionNode(struct DirectionNode *next, struct DirectionNode *current, struct DirectionNode *last, int *gesture_code) {
+struct DirectionNode *nextDirectionNode(struct DirectionNode *current, struct DirectionNode *base, struct DirectionNode *last, int *gesture_code) {
 	struct DirectionNode *search_direction_node;
-	*gesture_code = NO_GESTURE;	
+	*gesture_code = NO_GESTURE;
 
-	struct ChildNode *search_child_node = current->children;
+	struct ChildDirectionNode *search_child_node = base->children;
 
 	while (search_child_node != NULL) {
 		search_direction_node = search_child_node->direction_node;
 
-		if (compareGridNums(current->grid_num, search_direction_node->grid_num, last->grid_num, next->grid_num) == NODES_SAME) {
+		if (compareFourDirectionNodes(base, search_direction_node, last, current) == NODES_SAME) {
 			if (search_direction_node->gesture_code != NO_GESTURE) {
 				*gesture_code = search_direction_node->gesture_code;
 			}
-			
+
 			break;
 
 		} else {
@@ -69,14 +103,37 @@ int addGesture(int gesture_code, int n, int gesture_sequence[n][2]) {
 	struct DirectionNode *direction_node, *incoming_node, *last_incoming_node, *search_node;
 	int gesture_code_found = NO_GESTURE;
 
-	direction_node = getBase();
-	last_incoming_node = getBase();
+	if (n < 2) {
+		// Too small.
+		return INVALID_SEQUENCE;
+	}
 
-	int i=0;
-	for (i=0; i<n; i++) {
+	struct DirectionNode *first = createDirectionNode(gesture_sequence[0][0], gesture_sequence[0][1], NO_GESTURE);
+	struct DirectionNode *second = createDirectionNode(gesture_sequence[1][0], gesture_sequence[1][1], NO_GESTURE);
+
+	int i = 2;
+	while ((i < n) && (compareTwoDirectionNodes(first, second) == NODES_SAME)) {
+		free(second);
+		second = createDirectionNode(gesture_sequence[i][0], gesture_sequence[i][1], NO_GESTURE);
+		i++;
+	}
+
+	last_incoming_node = firstDirectionNode(second, first);
+	if (last_incoming_node == NULL) {
+		addSearchNode(first, second);
+		last_incoming_node = second;
+		direction_node = second;
+	} else {
+		direction_node = last_incoming_node;
+		free(first);
+		free(second);
+	}
+
+	for (; i<n; i++) {
 		incoming_node = createDirectionNode(gesture_sequence[i][0], gesture_sequence[i][1], NO_GESTURE);
 
 		if (compareTwoDirectionNodes(incoming_node, last_incoming_node) == NODES_SAME) {
+			free(incoming_node);
 			continue;
 		}
 
@@ -88,11 +145,13 @@ int addGesture(int gesture_code, int n, int gesture_sequence[n][2]) {
 				// gesture_sequence has a prefix already in tree. Invalid.
 				return INVALID_SEQUENCE;
 			}
+
+			free(last_incoming_node);
 			direction_node = search_node;
 
 		} else {
 			// New node needs to be created.
-			addChild(direction_node, incoming_node);
+			addDirectionNodeChild(direction_node, incoming_node);
 			direction_node = incoming_node;
 		}
 
@@ -110,7 +169,7 @@ int addGesture(int gesture_code, int n, int gesture_sequence[n][2]) {
  * @param  y
  * @param  gesture_code gesture_code should be NO_GESTURE if not a leaf DirectionNode.
  * @return              Returns created DirectionNode.
- */ 
+ */
 struct DirectionNode *createDirectionNode(int x, int y, int gesture_code) {
 	int grid_num = getGridNumFromCoordinates(x, y);
 
@@ -124,33 +183,29 @@ struct DirectionNode *createDirectionNode(int x, int y, int gesture_code) {
 	return direction_node;
 }
 
-void printTrie(struct DirectionNode *root) {
-	if (root->gesture_code != NO_GESTURE) { 
+void printStorage(struct SearchNode *root) {
+	struct SearchNode *base = root;
+	while (base != NULL) {
+		printDirectionNode(base->first);
+		fflush(stdout);
+		printDirectionNode(base->second);
+		fflush(stdout);
+		base = base->next;
+	}
+}
+
+static void printDirectionNode(struct DirectionNode *root) {
+	if (root->gesture_code != NO_GESTURE) {
 		printf("(%d) -- %d\n", root->grid_num, root->gesture_code);
 	} else {
 		printf("(%d) ", root->grid_num);
 	}
 
-	struct ChildNode *child = root->children;
+	struct ChildDirectionNode *child = root->children;
 	while (child != NULL) {
-		printTrie(child->direction_node);
+		printDirectionNode(child->direction_node);
 		child = child->next;
 	}
-}
-
-void printNode(struct DirectionNode *node) {
-	printf("(%d)\n", node->grid_num);
-}
-
-static struct DirectionNode *createTrie(void) {
-	struct DirectionNode *base = createDirectionNode(0, 0, NO_GESTURE);
-//	struct DirectionNode *one = createDirectionNode(0, GRID_BOX_LENGTH, NO_GESTURE);
-//	struct DirectionNode *two = createDirectionNode(0, 2 * GRID_BOX_LENGTH, NO_GESTURE);
-//
-//	addChild(base, one);
-//	addChild(one, two);
-
-	return base;
 }
 
 static int getGridNumFromCoordinates(int x, int y) {
@@ -170,8 +225,8 @@ static int getRowFromGridNum(int grid_num) {
 
 /**
  * Compares two angles using angle_thresh.
- * @param  node0         
- * @param  node1         
+ * @param  node0
+ * @param  node1
  * @param  thresh 	The angle and length thresholds are used to compare nodes.
  * @return          Returns 0 if angles are similar. Otherwise, 1.
  */
@@ -183,7 +238,7 @@ int compareTwoDirectionNodes(struct DirectionNode *node0, struct DirectionNode *
 
 	int comparison;
 
-	if ((abs(col0 - col1) < GRID_NEIGHBOURS_THRESH) 
+	if ((abs(col0 - col1) < GRID_NEIGHBOURS_THRESH)
 		&& (abs(row0 - row1) < GRID_NEIGHBOURS_THRESH)) {
 		comparison = NODES_SAME;
 	} else {
@@ -193,36 +248,20 @@ int compareTwoDirectionNodes(struct DirectionNode *node0, struct DirectionNode *
 	return comparison;
 }
 
-static int compareGridNums(int grid0_start, int grid0_end, int grid1_start, int grid1_end) {
-	if ((grid1_start == 0) && (grid0_start == 0)) {
+static int compareFourDirectionNodes(struct DirectionNode *grid0_start, struct DirectionNode *grid0_end, struct DirectionNode *grid1_start, struct DirectionNode *grid1_end) {
+	if ((grid1_start->grid_num == 0) && (grid0_start->grid_num == 0)) {
 		return NODES_SAME;
 	}
-	int row0end = getRowFromGridNum(grid0_end);
-	int col0end = getColFromGridNum(grid0_end);
 
-	int row0start = getRowFromGridNum(grid0_start);
-	int col0start = getColFromGridNum(grid0_start);	
+	int dy_0 = getRowFromGridNum(grid0_end->grid_num) - getRowFromGridNum(grid0_start->grid_num);
+	int dx_0 = getColFromGridNum(grid0_end->grid_num) - getColFromGridNum(grid0_start->grid_num);
 
-	int row1end = getRowFromGridNum(grid1_end);
-	int col1end = getColFromGridNum(grid1_end);
-
-	int row1start = getRowFromGridNum(grid1_start);
-	int col1start = getColFromGridNum(grid1_start);
-
-	// int dy_0 = getRowFromGridNum(grid0_end) - getRowFromGridNum(grid0_start);
-	// int dx_0 = getColFromGridNum(grid0_end) - getColFromGridNum(grid0_start);
-
-	// int dy_1 = getRowFromGridNum(grid1_end) - getRowFromGridNum(grid1_start);
-	// int dx_1 = getColFromGridNum(grid1_end) - getColFromGridNum(grid1_start);
-	
-	int dy_0 = row0end - row0start;
-	int dx_0 = col0end - col0start;
-	int dy_1 = row1end - row1start;
-	int dx_1 = col1end - col1start;
+	int dy_1 = getRowFromGridNum(grid1_end->grid_num) - getRowFromGridNum(grid1_start->grid_num);
+	int dx_1 = getColFromGridNum(grid1_end->grid_num) - getColFromGridNum(grid1_start->grid_num);
 
 	int comparison;
 
-	if ((abs(dy_0 - dy_1) < GRID_DIFF_THRESH) 
+	if ((abs(dy_0 - dy_1) < GRID_DIFF_THRESH)
 		&& (abs(dx_0 - dx_1) < GRID_DIFF_THRESH)) {
 		comparison = NODES_SAME;
 	} else {
@@ -232,28 +271,54 @@ static int compareGridNums(int grid0_start, int grid0_end, int grid1_start, int 
 	return comparison;
 }
 
-static void addChild(struct DirectionNode *parent, struct DirectionNode *child) {
+static void addDirectionNodeChild(struct DirectionNode *parent, struct DirectionNode *child) {
 	if (parent->children != NULL) {
-		
-		struct ChildNode *child_node = parent->children;
+
+		struct ChildDirectionNode *child_node = parent->children;
 		while (child_node->next != NULL) {
 			child_node = child_node->next;
 		}
 
-		child_node->next = createChildNode(child);
+		child_node->next = createChildDirectionNode(child);
 
 	} else {
-		parent->children = createChildNode(child);
+		parent->children = createChildDirectionNode(child);
 	}
 
 	child->parent = parent;
 }
 
-static struct ChildNode *createChildNode(struct DirectionNode *direction_node) {
-	struct ChildNode *child_node = (struct ChildNode *) malloc(sizeof(struct ChildNode));
+static struct ChildDirectionNode *createChildDirectionNode(struct DirectionNode *direction_node) {
+	struct ChildDirectionNode *child_node = (struct ChildDirectionNode *) malloc(sizeof(struct ChildDirectionNode));
 
 	child_node->direction_node = direction_node;
 	child_node->next = NULL;
 
 	return child_node;
+}
+
+static void addSearchNode(struct DirectionNode *first, struct DirectionNode *second) {
+	struct SearchNode *base = getBase();
+
+	while (base->next != NULL) {
+		if (compareFourDirectionNodes(base->first, base->second, first, second) == NODES_SAME) {
+			return;
+		}
+
+		base = base->next;
+	}
+
+	if (compareFourDirectionNodes(base->first, base->second, first, second) == NODES_DIFFERENT) {
+		base->next = createSearchNode(first, second);
+	}
+}
+
+static struct SearchNode *createSearchNode(struct DirectionNode *first, struct DirectionNode *second) {
+	struct SearchNode *node = (struct SearchNode *) malloc(sizeof(struct SearchNode));
+
+	node->first = first;
+	node->second = second;
+	node->next = NULL;
+
+	return node;
 }

@@ -4,7 +4,7 @@
 * subject to the License Agreement located at the end of this file below.*
 **************************************************************************
 * Description:                                                           *
-* The following is a simple hello world program running MicroC/OS-II.The * 
+* The following is a simple hello world program running MicroC/OS-II.The *
 * purpose of the design is to be a very simple application that just     *
 * demonstrates MicroC/OS-II running on NIOS II.The design doesn't account*
 * for issues such as checking system call return codes. etc.             *
@@ -93,14 +93,15 @@ void gesture_recognition_task(void *pdata)
 	int x = 0;
 	int y = 0;
 	int direction_code = 0;
+    int mode = SEARCH_MODE;
 
-	struct DirectionNode *current = getBase();
-	printTrie(current);
+	struct SearchNode *storage_base = getBase();
+	printStorage(storage_base->next);
 
-	struct DirectionNode *incoming_node, *last_incoming_node = getBase();
+	struct DirectionNode *incoming_node, *last_incoming_node, *base;
+    last_incoming_node = getDummyBase();
 
 	while (1) {
-
 		int centroid = (int) OSQPend(position_queue, 0, &err);
 		if (err == OS_NO_ERR) {
 			end_time = OSTimeGet();
@@ -110,8 +111,8 @@ void gesture_recognition_task(void *pdata)
 			x = centroid & 1023;
 			y = centroid >> 16;
 			frame_rate = frame_count / time_passed;
-
-			char *message = (char *) malloc(LARGE_BUF_SIZE * sizeof(char));
+;
+			char *message = (char *) calloc(LARGE_BUF_SIZE, sizeof(char));
 //			snprintf(message, LARGE_BUF_SIZE, "M:%d N:%d f:%2.0f n:%d", x, y, frame_rate, frame_count);
 
 			#ifdef RECOGNITION_ON
@@ -120,27 +121,33 @@ void gesture_recognition_task(void *pdata)
 
 			if (compareTwoDirectionNodes(incoming_node, last_incoming_node) == NODES_DIFFERENT) {
 
-				current = nextDirectionNode(incoming_node, current, last_incoming_node, &direction_code);
-				if (current) {
-					// Leaf node
-					if (current->gesture_code != NO_GESTURE) {
-//						snprintf(message, LARGE_BUF_SIZE, "%s #%d", message, current->gesture_code);
-						snprintf(message, LARGE_BUF_SIZE, "%d - #%d", frame_count, current->gesture_code);
-						current = getBase();
-						last_incoming_node = getBase();
+                if (mode == SEARCH_MODE) {
+			        base = firstDirectionNode(incoming_node, last_incoming_node);
+                } else {
+				    base = nextDirectionNode(incoming_node, base, last_incoming_node, &direction_code);
+                }
 
-						if (OSQPost(lcd_queue, message) != OS_NO_ERR)
+				if (base) {
+					// Leaf node
+					if (base->gesture_code != NO_GESTURE) {
+                        mode = SEARCH_MODE;
+                        snprintf(message, LARGE_BUF_SIZE, "%d: RECOGNIZED %d", frame_count, base->gesture_code);
+                        if (OSQPost(lcd_queue, message) != OS_NO_ERR)
 							printf("Error: message not put on LCD queue.\n");
+//						snprintf(message, LARGE_BUF_SIZE, "%s #%d", message, base->gesture_code);
 
 					} else {
-						last_incoming_node = incoming_node;
+                        mode = FOLLOW_MODE;
 //						snprintf(message, LARGE_BUF_SIZE, "%s h", message);
 					}
 				} else {
-					current = getBase();
-					last_incoming_node = getBase();
+                    mode = SEARCH_MODE;
 //					snprintf(message, LARGE_BUF_SIZE, "%s m", message);
 				}
+
+		        free(last_incoming_node);
+		        last_incoming_node = incoming_node;
+
 			} else {
 //				snprintf(message, LARGE_BUF_SIZE, "%s c", message);
 			}
