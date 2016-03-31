@@ -47,10 +47,12 @@
 
 OS_STK    GestureRecognitionTask_stk[TASK_STACKSIZE];
 OS_STK    LCDTask_stk[TASK_STACKSIZE];
+OS_STK    AudioTask_stk[TASK_STACKSIZE];
 
 /* Definition of Task Priorities */
 #define LCD_TASK_PRIORITY					1
 #define GESTURE_RECOGNITION_TASK_PRIORITY	2
+#define AUDIO_TASK_PRIORITY					3
 
 /* Screen Definitions */
 #define UPPER_SCREEN             0
@@ -75,9 +77,20 @@ void *LCDQueue[LCDQSize];
 OS_EVENT *position_queue;
 void *PositionQueue[PositionQSize];
 
+/* Queue for recognized gesture data. */
+#define GestureQSize 2
+OS_EVENT *gesture_queue;
+void *GestureQueue[GestureQSize];
+
 static void irq_handler (void * context) {
 	int centroid = IORD_32DIRECT(LED_DETECTOR_BASE, 0);
 	OSQPost(position_queue, (void *) centroid);
+}
+
+void audio_task(void *pdata) {
+	while (1) {
+		OSTimeDlyHMSM(0, 0, 1, 0);
+	}
 }
 
 void gesture_recognition_task(void *pdata)
@@ -132,6 +145,7 @@ void gesture_recognition_task(void *pdata)
 					if (base->gesture_code != NO_GESTURE) {
                         mode = SEARCH_MODE;
                         snprintf(message, LARGE_BUF_SIZE, "%d: RECOGNIZED %d", frame_count, base->gesture_code);
+                        printf("%s\n", message);
                         if (OSQPost(lcd_queue, message) != OS_NO_ERR)
 							printf("Error: message not put on LCD queue.\n");
 //						snprintf(message, LARGE_BUF_SIZE, "%s #%d", message, base->gesture_code);
@@ -218,12 +232,29 @@ int main(void)
 	if (position_queue == NULL)
 		printf("Error: could not create position queue\n");
 
+	gesture_queue = OSQCreate(GestureQueue, GestureQSize);
+	if (gesture_queue == NULL)
+		printf("Error: could not create gesture queue\n");
+
 	/* Initiate Interrupt */
 	alt_ic_isr_register(LED_DETECTOR_IRQ_INTERRUPT_CONTROLLER_ID,
 			LED_DETECTOR_IRQ,
 			irq_handler,
 			NULL,
 			NULL);
+
+	err = OSTaskCreateExt(audio_task,
+					  NULL,
+					  (void *)&AudioTask_stk[TASK_STACKSIZE-1],
+					  AUDIO_TASK_PRIORITY,
+					  AUDIO_TASK_PRIORITY,
+					  AudioTask_stk,
+					  TASK_STACKSIZE,
+					  NULL,
+					  0);
+
+	if (err != OS_NO_ERR)
+		printf("Audio task not created.\n");
 
 	err = OSTaskCreateExt(LCD_task,
 				  NULL,
