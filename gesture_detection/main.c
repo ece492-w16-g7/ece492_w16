@@ -26,14 +26,29 @@
 *     If this design is run on the ISS, terminal output will take several*
 *     minutes per iteration.                                             *
 **************************************************************************/
-
+/**
+ * ECE492 - Group 7 - Winter 2016
+ *
+ * Description: This is the main.c file for the gesture detection project.
+ * 				It contains all the tasks required for the project to work.
+ * Author: Patrick Kuczera, Andrew Zhong, Shahzeb Asif
+ * Date: Apr 5, 2016
+ *
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "includes.h"
 #include "system.h"
 #include "io.h"
+#include "sys/alt_irq.h"
 #include "altera_up_avalon_character_lcd.h"
+
+#include "altera_up_avalon_audio.h"
+#include "altera_up_avalon_audio_regs.h"
+#include "altera_up_avalon_audio_and_video_config.h"
+#include "sd/file.h"
+#include "sd/efs.h"
 
 #include "gesture_trie.h"
 #include "gesture_storage.h"
@@ -41,6 +56,9 @@
 /* Generic buffer sizes. */
 #define SMALL_BUF_SIZE			20
 #define LARGE_BUF_SIZE 			100
+
+#define AUDIO_BUF_SIZE     		128
+#define WORD_COUNT   			(AUDIO_BUF_SIZE/2)
 
 /* Definition of Task Stacks */
 #define   TASK_STACKSIZE       2048
@@ -50,9 +68,9 @@ OS_STK    LCDTask_stk[TASK_STACKSIZE];
 OS_STK    AudioTask_stk[TASK_STACKSIZE];
 
 /* Definition of Task Priorities */
-#define LCD_TASK_PRIORITY					1
-#define GESTURE_RECOGNITION_TASK_PRIORITY	2
 #define AUDIO_TASK_PRIORITY					3
+#define GESTURE_RECOGNITION_TASK_PRIORITY	1
+#define LCD_TASK_PRIORITY					2
 
 /* Screen Definitions */
 #define UPPER_SCREEN             0
@@ -62,10 +80,22 @@ OS_STK    AudioTask_stk[TASK_STACKSIZE];
 #define INIT_POSITION            0
 #define SCREEN_ROW_SIZE			16
 
+/* Audio definitions */
+#define PLAY 					20
+#define PAUSE					21
+
+#define VOLUME_STEPS			10
+#define DEFAULT_VOLUME			50
+#define MIN_VOLUME				0
+#define MAX_VOLUME				100
+
 /* Globals */
 alt_up_character_lcd_dev * char_lcd_dev;
 
-#define RECOGNITION_ON
+alt_up_audio_dev * audio_dev;
+alt_up_av_config_dev* av_dev;
+EmbeddedFileSystem efsl;
+File readFile;
 
 /* Queue for LCD to print message. */
 #define LCDQSize 2
@@ -77,22 +107,145 @@ void *LCDQueue[LCDQSize];
 OS_EVENT *position_queue;
 void *PositionQueue[PositionQSize];
 
-/* Queue for recognized gesture data. */
-#define GestureQSize 2
-OS_EVENT *gesture_queue;
-void *GestureQueue[GestureQSize];
+/* Semaphore for writing audio to queue */
+OS_EVENT *audio_sem;
 
-static void irq_handler (void * context) {
+/* This function was borrowed from: */
+static int audio_set_headphone_volume(alt_up_audio_dev * audio_codec, int volume) {
+	int nVolume = (((((volume) * 80) / 100) + 48) - 1);
+	int err = 0;
+	err += alt_up_av_config_write_audio_cfg_register(audio_codec, AUDIO_REG_LEFT_HEADPHONE_OUT, nVolume);
+	err += alt_up_av_config_write_audio_cfg_register(audio_codec, AUDIO_REG_RIGHT_HEADPHONE_OUT, nVolume);
+	return err;
+}
+
+/* Simple utility function to ensure set volume isn't too high or low. */
+static int boundNumber(int x, int upper, int lower) {
+	if (x < lower) {
+		return lower;
+	} else if (x > upper) {
+		return upper;
+	} else {
+		return x;
+	}
+}
+
+/* Increase the volume for the audio component */
+static int increaseVolume(int volume) {
+	return boundNumber(volume + VOLUME_STEPS, MAX_VOLUME, MIN_VOLUME);
+}
+
+/* Decrease the volume for the audio component */
+static int decreaseVolume(int volume) {
+	return boundNumber(volume - VOLUME_STEPS, MAX_VOLUME, MIN_VOLUME);
+}
+
+/* Handle the commands for each gesture */
+static void handleGestureCommands(int gesture_code) {
+	INT8U err;
+
+	static int state = PAUSE;
+	static int volume = 70;
+
+	char *message = (char *) calloc(LARGE_BUF_SIZE, sizeof(char));
+
+	// Pause
+	if ((state == PLAY) && (gesture_code == GCODE_DOWN_LEFT)) {
+		OSTaskSuspend(AUDIO_TASK_PRIORITY);
+		state = PAUSE;
+		snprintf(message, LARGE_BUF_SIZE, "RECOGNIZED DOWN-LEFT: PAUSE");
+	// Play
+	} else if ((state == PAUSE) && (gesture_code == GCODE_UP_LEFT)) {
+		OSTaskResume(AUDIO_TASK_PRIORITY);
+		state = PLAY;
+		snprintf(message, LARGE_BUF_SIZE, "RECOGNIZED UP-LEFT: PLAY");
+	// Volume down
+	} else if ((state == PLAY) && (gesture_code == GCODE_DOWN_RIGHT)) {
+		volume = decreaseVolume(volume);
+		audio_set_headphone_volume(av_dev, volume);
+		snprintf(message, LARGE_BUF_SIZE, "RECOGNIZED DOWN-RIGHT: VOL-DOWN");
+	// Volume up
+	} else if ((state == PLAY) && (gesture_code == GCODE_UP_RIGHT)) {
+		volume = increaseVolume(volume);
+		audio_set_headphone_volume(av_dev, volume);
+		snprintf(message, LARGE_BUF_SIZE, "RECOGNIZED UP-RIGHT: VOL-UP");
+	}
+
+	printf("%s\n", message);
+	if ((err = OSQPost(lcd_queue, message)) != OS_NO_ERR) {
+		printf("Error %d: message not put on LCD queue.\n", err);
+	}
+}
+
+/* IRQ for the detector component indicating that centroid information
+ * is ready.
+ */
+static void detector_irq_handler (void * context) {
 	int centroid = IORD_32DIRECT(LED_DETECTOR_BASE, 0);
 	OSQPost(position_queue, (void *) centroid);
 }
 
+/* The audio task is responsible for continuously playing music
+ * off the SD card.
+ */
 void audio_task(void *pdata) {
-	while (1) {
-		OSTimeDlyHMSM(0, 0, 1, 0);
+	INT8U err = 0;
+
+	err += alt_up_av_config_write_audio_cfg_register(av_dev, AUDIO_REG_ACTIVE_CTRL, 0x00);
+	err += alt_up_av_config_write_audio_cfg_register(av_dev, AUDIO_REG_LEFT_LINE_IN, 0x97);//0
+	err += alt_up_av_config_write_audio_cfg_register(av_dev, AUDIO_REG_RIGHT_LINE_IN, 0x97);//1
+	err += alt_up_av_config_write_audio_cfg_register(av_dev, AUDIO_REG_LEFT_HEADPHONE_OUT, 0x79);//2
+	err += alt_up_av_config_write_audio_cfg_register(av_dev, AUDIO_REG_RIGHT_HEADPHONE_OUT, 0x79);//3
+	err += alt_up_av_config_write_audio_cfg_register(av_dev, AUDIO_REG_ANALOG_AUDIO_PATH_CTRL, 0x12);//4
+	err += alt_up_av_config_write_audio_cfg_register(av_dev, AUDIO_REG_DIGITAL_AUDIO_PATH_CTRL, 0x05);//5
+	err += alt_up_av_config_write_audio_cfg_register(av_dev, AUDIO_REG_POWER_DOWN_CTRL, 0x07);//6
+	err += alt_up_av_config_write_audio_cfg_register(av_dev, AUDIO_REG_AUDIO_DIGITAL_INTERFACE, 0x42);//7
+	err += alt_up_av_config_write_audio_cfg_register(av_dev, AUDIO_REG_SAMPLING_CTRL, 0x22);//8 22
+	err += alt_up_av_config_write_audio_cfg_register(av_dev, AUDIO_REG_ACTIVE_CTRL, 0x01);
+	err += audio_set_headphone_volume(av_dev, DEFAULT_VOLUME);
+
+	if(err < 0)
+		printf("Audio Configuration Failed\n");
+
+	alt_up_audio_reset_audio_core(audio_dev);
+	alt_up_audio_disable_read_interrupt(audio_dev);
+	alt_up_audio_disable_write_interrupt(audio_dev);
+
+	char fileName[10] = {"class.wav\0"};
+	if (file_fopen(&readFile, &efsl.myFs, fileName, 'r') != 0)
+		printf("Error:\tCould not open file\n");
+
+	int readSize = 0;
+	euint32 currentSize = 44;
+
+	euint8 buf[AUDIO_BUF_SIZE];
+	int i;
+
+	/* The task is suspended so that it can be played by another task. */
+	OSTaskSuspend(AUDIO_TASK_PRIORITY);
+	while(1) {
+		if (currentSize < readFile.FileSize) {
+			int fifospace = alt_up_audio_write_fifo_space(audio_dev, ALT_UP_AUDIO_LEFT);
+			if (fifospace > WORD_COUNT) {
+				readSize = file_fread(&readFile, currentSize, AUDIO_BUF_SIZE, buf);
+				currentSize += readSize;
+				i = 0;
+				while(i < AUDIO_BUF_SIZE) {
+					IOWR_ALT_UP_AUDIO_LEFTDATA(audio_dev->base, (buf[i+1]<<8)|buf[i]);
+					IOWR_ALT_UP_AUDIO_RIGHTDATA(audio_dev->base, (buf[i+3]<<8)|buf[i+2]);
+
+					i+=4;
+				}
+			}
+		} else {
+			currentSize = 44;
+		}
 	}
+
+	file_fclose(&readFile);
 }
 
+/* This task is responsible for gesture recognition. */
 void gesture_recognition_task(void *pdata)
 {
 	INT8U err;
@@ -125,13 +278,9 @@ void gesture_recognition_task(void *pdata)
 			y = centroid >> 16;
 			frame_rate = frame_count / time_passed;
 ;
-			char *message = (char *) calloc(LARGE_BUF_SIZE, sizeof(char));
-//			snprintf(message, LARGE_BUF_SIZE, "M:%d N:%d f:%2.0f n:%d", x, y, frame_rate, frame_count);
-
-			#ifdef RECOGNITION_ON
 			incoming_node = createDirectionNode(x, y, NO_GESTURE);
-//			snprintf(message, LARGE_BUF_SIZE, "%d,%d,%d,%d", frame_count, x, y, incoming_node->grid_num);
 
+			/* We ignore position information that falls within the same grid */
 			if (compareTwoDirectionNodes(incoming_node, last_incoming_node) == NODES_DIFFERENT) {
 
                 if (mode == SEARCH_MODE) {
@@ -144,40 +293,27 @@ void gesture_recognition_task(void *pdata)
 					// Leaf node
 					if (base->gesture_code != NO_GESTURE) {
                         mode = SEARCH_MODE;
-                        snprintf(message, LARGE_BUF_SIZE, "%d: RECOGNIZED %d", frame_count, base->gesture_code);
-                        printf("%s\n", message);
-                        if (OSQPost(lcd_queue, message) != OS_NO_ERR)
-							printf("Error: message not put on LCD queue.\n");
-//						snprintf(message, LARGE_BUF_SIZE, "%s #%d", message, base->gesture_code);
+                        handleGestureCommands(base->gesture_code);
 
 					} else {
                         mode = FOLLOW_MODE;
-//						snprintf(message, LARGE_BUF_SIZE, "%s h", message);
 					}
 				} else {
                     mode = SEARCH_MODE;
-//					snprintf(message, LARGE_BUF_SIZE, "%s m", message);
 				}
 
 		        free(last_incoming_node);
 		        last_incoming_node = incoming_node;
 
 			} else {
-//				snprintf(message, LARGE_BUF_SIZE, "%s c", message);
 			}
-			#endif
-
-//		printf("%s\n", message);
-
-//		if (OSQPost(lcd_queue, message) != OS_NO_ERR)
-//			printf("Error: message not put on LCD queue.\n");
-
 		} else {
 			printf("Error receiving centroid!\n");
 		}
 	}
 }
 
+/* LCD_task is responsible for printing to the LED */
 void LCD_task(void* pdata)
 {
 	INT8U err;
@@ -220,9 +356,28 @@ void LCD_task(void* pdata)
 }
 
 /* The main function creates two task and starts multi-tasking */
-int main(void)
-{
+int main(void) {
 	INT8U err;
+
+	/* Initialize all the different components. */
+
+	// open the Audio port
+	av_dev = alt_up_av_config_open_dev(AV_CONFIG_NAME);
+	if (av_dev == NULL)
+		printf ("Error: could not open AV device \n");
+
+	audio_dev = alt_up_audio_open_dev (AUDIO_0_NAME);
+	if (audio_dev == NULL)
+		printf("Error: could not open audio device \n");
+
+	audio_sem = OSSemCreate(0);
+	if (audio_sem == NULL)
+		printf("Error: could not initialize semaphore \n");
+
+	// Initialize efsl
+	int ret = efs_init(&efsl, SPI_0_NAME);
+	if(ret != 0)
+		printf("...could not initialize filesystem.\n");
 
 	lcd_queue = OSQCreate(LCDQueue, LCDQSize);
 	if (lcd_queue == NULL)
@@ -232,16 +387,13 @@ int main(void)
 	if (position_queue == NULL)
 		printf("Error: could not create position queue\n");
 
-	gesture_queue = OSQCreate(GestureQueue, GestureQSize);
-	if (gesture_queue == NULL)
-		printf("Error: could not create gesture queue\n");
-
-	/* Initiate Interrupt */
-	alt_ic_isr_register(LED_DETECTOR_IRQ_INTERRUPT_CONTROLLER_ID,
+	err = alt_ic_isr_register(LED_DETECTOR_IRQ_INTERRUPT_CONTROLLER_ID,
 			LED_DETECTOR_IRQ,
-			irq_handler,
+			detector_irq_handler,
 			NULL,
 			NULL);
+	if (err != 0)
+		printf("Error: could not initialize detector interrupt\n");
 
 	err = OSTaskCreateExt(audio_task,
 					  NULL,

@@ -1,3 +1,14 @@
+/**
+ * ECE492 - Group 7 - Winter 2016
+ *
+ * Description: This is the header for gesture_trie.c. It
+ * 				contains many constants that are used to
+ * 				fit different setups.
+ * Author: Shahzeb Asif
+ * Date: Apr 5, 2016
+ *
+ */
+
 #ifndef GESTURE_TRIE__
 #define GESTURE_TRIE__
 
@@ -13,9 +24,10 @@
 #define NODES_SAME			3010
 #define NODES_DIFFERENT		3011
 
+/* Define gride size */
 #define GRID_TOTAL_LENGTH	240
 #define GRID_TOTAL_WIDTH	640
-#define	GRID_BOX_LENGTH	10
+#define	GRID_BOX_LENGTH	15
 #define	GRID_BOX_WIDTH 	40
 #define GRID_TOTAL_COLS		(GRID_TOTAL_WIDTH / GRID_BOX_WIDTH)
 #define GRID_TOTAL_ROWS		(GRID_TOTAL_LENGTH / GRID_BOX_LENGTH)
@@ -29,6 +41,7 @@
 #define SEARCH_MODE 			500
 #define FOLLOW_MODE				501
 
+/* The nodes of the trie-like data structure. */
 struct DirectionNode {
 	int grid_num;
     struct DirectionNode *parent;
@@ -36,11 +49,13 @@ struct DirectionNode {
     int gesture_code;
 };
 
+/* The children of a given DirectionNode. */
 struct ChildDirectionNode {
 	struct DirectionNode *direction_node;
 	struct ChildDirectionNode *next;
 };
 
+/* The list that stores the start of a gesture. */
 struct SearchNode {
 	struct DirectionNode *first;
 	struct DirectionNode *second;

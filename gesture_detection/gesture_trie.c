@@ -1,3 +1,14 @@
+/**
+ * ECE492 - Group 7 - Winter 2016
+ *
+ * Description: This is the mini-library that is incharge
+ * 				of creating, updating, searching a Trie-like
+ * 				data structure that manages the gestures.
+ * Author: Shahzeb Asif
+ * Date: Apr 5, 2016
+ *
+ */
+
 #include "gesture_trie.h"
 
 static int getGridNumFromCoordinates(int x, int y);
@@ -94,9 +105,8 @@ struct DirectionNode *nextDirectionNode(struct DirectionNode *current, struct Di
  * Adds a gesture sequence to the tree.
  * @param  gesture_code     The gesture code for the given gesture. Please make the
  							first point passed in (0,0).
- * @param  gesture_sequence An int array with x,y coordinates.
  * @param  n                The number of points in the gesture.
- * @param  thresh 			The angle and length threshold used to compare angles.
+ * @param  gesture_sequence An int array with x,y coordinates.
  * @return                  Returns 0 if successful and -1 if error.
  */
 int addGesture(int gesture_code, int n, int gesture_sequence[n][2]) {
@@ -208,6 +218,13 @@ static void printDirectionNode(struct DirectionNode *root) {
 	}
 }
 
+/**
+ * Compares two angles using angle_thresh.
+ * @param  x
+ * @param  y
+ * @return  Returns the grid number associated with the
+ *          x, y coordinates.
+ */
 static int getGridNumFromCoordinates(int x, int y) {
 	int col = x / GRID_BOX_WIDTH;
 	int row = y / GRID_BOX_LENGTH;
@@ -224,11 +241,10 @@ static int getRowFromGridNum(int grid_num) {
 }
 
 /**
- * Compares two angles using angle_thresh.
+ * Compares two nodes using angle_thresh.
  * @param  node0
  * @param  node1
- * @param  thresh 	The angle and length thresholds are used to compare nodes.
- * @return          Returns 0 if angles are similar. Otherwise, 1.
+ * @return  Returns 0 if angles are similar. Otherwise, 1.
  */
 int compareTwoDirectionNodes(struct DirectionNode *node0, struct DirectionNode *node1) {
 	int col0 = getColFromGridNum(node0->grid_num);
@@ -247,7 +263,14 @@ int compareTwoDirectionNodes(struct DirectionNode *node0, struct DirectionNode *
 
 	return comparison;
 }
-
+/**
+ * Compares
+ * @param  grid0_start  The start node of the stored pair of nodes.
+ * @param  grid0_end    The end node of the stored pair of nodes.
+ * @param  grid1_start  The start node of the user made pair of nodes.
+ * @param  grid1_end    The end node of the user made pair of nodes.
+ * @return  Returns 0 if the pair of nodes are similar. Otherwise, 1.
+ */
 static int compareFourDirectionNodes(struct DirectionNode *grid0_start, struct DirectionNode *grid0_end, struct DirectionNode *grid1_start, struct DirectionNode *grid1_end) {
 	if ((grid1_start->grid_num == 0) && (grid0_start->grid_num == 0)) {
 		return NODES_SAME;
