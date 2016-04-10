@@ -110,7 +110,8 @@ void *PositionQueue[PositionQSize];
 /* Semaphore for writing audio to queue */
 OS_EVENT *audio_sem;
 
-/* This function was borrowed from: */
+/* This function was borrowed from: Network-Controllable Embedded MP3 Player
+https://www.ualberta.ca/~delliott/local/ece492/projects/2013w/g12_EmbeddedMP3/g12_EmbeddedMP3Player.zip */
 static int audio_set_headphone_volume(alt_up_audio_dev * audio_codec, int volume) {
 	int nVolume = (((((volume) * 80) / 100) + 48) - 1);
 	int err = 0;
