@@ -1,0 +1,14 @@
+#ifndef PLAYER__
+#define PLAYER__
+
+struct Player {
+
+};
+
+struct Song {
+
+
+
+};
+
+#endif

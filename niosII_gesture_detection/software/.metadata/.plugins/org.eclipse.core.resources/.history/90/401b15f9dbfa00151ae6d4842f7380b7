@@ -1,0 +1,8 @@
+#ifndef PLAYER__
+#define PLAYER__
+
+struct PlayerObj {
+
+};
+
+#endif

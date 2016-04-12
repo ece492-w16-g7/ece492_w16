@@ -1,0 +1,69 @@
+	component niosII_system is
+		port (
+			pixel_buffer_external_interface_DQ                                               : inout std_logic_vector(15 downto 0) := (others => 'X'); -- DQ
+			pixel_buffer_external_interface_ADDR                                             : out   std_logic_vector(17 downto 0);                    -- ADDR
+			pixel_buffer_external_interface_LB_N                                             : out   std_logic;                                        -- LB_N
+			pixel_buffer_external_interface_UB_N                                             : out   std_logic;                                        -- UB_N
+			pixel_buffer_external_interface_CE_N                                             : out   std_logic;                                        -- CE_N
+			pixel_buffer_external_interface_OE_N                                             : out   std_logic;                                        -- OE_N
+			pixel_buffer_external_interface_WE_N                                             : out   std_logic;                                        -- WE_N
+			av_config_external_interface_SDAT                                                : inout std_logic                     := 'X';             -- SDAT
+			av_config_external_interface_SCLK                                                : out   std_logic;                                        -- SCLK
+			decoder_external_interface_TD_CLK27                                              : in    std_logic                     := 'X';             -- TD_CLK27
+			decoder_external_interface_TD_DATA                                               : in    std_logic_vector(7 downto 0)  := (others => 'X'); -- TD_DATA
+			decoder_external_interface_TD_HS                                                 : in    std_logic                     := 'X';             -- TD_HS
+			decoder_external_interface_TD_VS                                                 : in    std_logic                     := 'X';             -- TD_VS
+			decoder_external_interface_TD_RESET                                              : out   std_logic;                                        -- TD_RESET
+			decoder_external_interface_overflow_flag                                         : out   std_logic;                                        -- overflow_flag
+			vga_controller_external_interface_CLK                                            : out   std_logic;                                        -- CLK
+			vga_controller_external_interface_HS                                             : out   std_logic;                                        -- HS
+			vga_controller_external_interface_VS                                             : out   std_logic;                                        -- VS
+			vga_controller_external_interface_BLANK                                          : out   std_logic;                                        -- BLANK
+			vga_controller_external_interface_SYNC                                           : out   std_logic;                                        -- SYNC
+			vga_controller_external_interface_R                                              : out   std_logic_vector(9 downto 0);                     -- R
+			vga_controller_external_interface_G                                              : out   std_logic_vector(9 downto 0);                     -- G
+			vga_controller_external_interface_B                                              : out   std_logic_vector(9 downto 0);                     -- B
+			sdram_0_wire_addr                                                                : out   std_logic_vector(11 downto 0);                    -- addr
+			sdram_0_wire_ba                                                                  : out   std_logic_vector(1 downto 0);                     -- ba
+			sdram_0_wire_cas_n                                                               : out   std_logic;                                        -- cas_n
+			sdram_0_wire_cke                                                                 : out   std_logic;                                        -- cke
+			sdram_0_wire_cs_n                                                                : out   std_logic;                                        -- cs_n
+			sdram_0_wire_dq                                                                  : inout std_logic_vector(15 downto 0) := (others => 'X'); -- dq
+			sdram_0_wire_dqm                                                                 : out   std_logic_vector(1 downto 0);                     -- dqm
+			sdram_0_wire_ras_n                                                               : out   std_logic;                                        -- ras_n
+			sdram_0_wire_we_n                                                                : out   std_logic;                                        -- we_n
+			character_lcd_0_external_interface_DATA                                          : inout std_logic_vector(7 downto 0)  := (others => 'X'); -- DATA
+			character_lcd_0_external_interface_ON                                            : out   std_logic;                                        -- ON
+			character_lcd_0_external_interface_BLON                                          : out   std_logic;                                        -- BLON
+			character_lcd_0_external_interface_EN                                            : out   std_logic;                                        -- EN
+			character_lcd_0_external_interface_RS                                            : out   std_logic;                                        -- RS
+			character_lcd_0_external_interface_RW                                            : out   std_logic;                                        -- RW
+			led_detector_thres_active_conduit_export                                         : in    std_logic                     := 'X';             -- export
+			led_detector_thres_range_conduit_export                                          : in    std_logic_vector(9 downto 0)  := (others => 'X'); -- export
+			audio_0_external_interface_BCLK                                                  : in    std_logic                     := 'X';             -- BCLK
+			audio_0_external_interface_DACDAT                                                : out   std_logic;                                        -- DACDAT
+			audio_0_external_interface_DACLRCK                                               : in    std_logic                     := 'X';             -- DACLRCK
+			spi_0_external_MISO                                                              : in    std_logic                     := 'X';             -- MISO
+			spi_0_external_MOSI                                                              : out   std_logic;                                        -- MOSI
+			spi_0_external_SCLK                                                              : out   std_logic;                                        -- SCLK
+			spi_0_external_SS_n                                                              : out   std_logic;                                        -- SS_n
+			clock50_clk_in_clk                                                               : in    std_logic                     := 'X';             -- clk
+			clock50_clk_in_reset_reset_n                                                     : in    std_logic                     := 'X';             -- reset_n
+			clock27_clk_in_clk                                                               : in    std_logic                     := 'X';             -- clk
+			clock27_clk_in_reset_reset_n                                                     : in    std_logic                     := 'X';             -- reset_n
+			audioclk_out_clk_clk                                                             : out   std_logic;                                        -- clk
+			sdramclk_out_clk_clk                                                             : out   std_logic;                                        -- clk
+			pll50_areset_conduit_export                                                      : in    std_logic                     := 'X';             -- export
+			pll50_locked_conduit_export                                                      : out   std_logic;                                        -- export
+			pll50_phasedone_conduit_export                                                   : out   std_logic;                                        -- export
+			pll27_areset_conduit_export                                                      : in    std_logic                     := 'X';             -- export
+			pll27_locked_conduit_export                                                      : out   std_logic;                                        -- export
+			pll27_phasedone_conduit_export                                                   : out   std_logic;                                        -- export
+			tristate_conduit_bridge_0_out_generic_tristate_controller_0_tcm_read_n_out       : out   std_logic_vector(0 downto 0);                     -- generic_tristate_controller_0_tcm_read_n_out
+			tristate_conduit_bridge_0_out_generic_tristate_controller_0_tcm_data_out         : inout std_logic_vector(7 downto 0)  := (others => 'X'); -- generic_tristate_controller_0_tcm_data_out
+			tristate_conduit_bridge_0_out_generic_tristate_controller_0_tcm_chipselect_n_out : out   std_logic_vector(0 downto 0);                     -- generic_tristate_controller_0_tcm_chipselect_n_out
+			tristate_conduit_bridge_0_out_generic_tristate_controller_0_tcm_write_n_out      : out   std_logic_vector(0 downto 0);                     -- generic_tristate_controller_0_tcm_write_n_out
+			tristate_conduit_bridge_0_out_generic_tristate_controller_0_tcm_address_out      : out   std_logic_vector(21 downto 0)                     -- generic_tristate_controller_0_tcm_address_out
+		);
+	end component niosII_system;
+

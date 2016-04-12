@@ -1,0 +1,1871 @@
+!SESSION 2016-03-21 16:16:18.360 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.cdt.core 1 0 2016-03-21 16:17:31.106
+!MESSAGE Indexed 'g7_gesture_detection_bsp' (98 sources, 114 headers) in 1.77 sec: 3,342 declarations; 12,911 references; 96 unresolved inclusions; 5 syntax errors; 224 unresolved names (1.36%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2016-03-21 16:17:31.769
+!MESSAGE Indexed 'g7_gesture_detection' (1 sources, 13 headers) in 0.03 sec: 8 declarations; 23 references; 15 unresolved inclusions; 0 syntax errors; 6 unresolved names (16.22%)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-21 16:41:12.734
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1458599849]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-21 16:41:14.234
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1458599849 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-21 16:42:29.116
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-21 16:42:29.313
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1458599849]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-21 16:42:30.679
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1458599849 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-21 16:47:30.580
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-21 16:47:30.816
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1458599849]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-21 16:47:32.184
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1458599849 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-21 16:48:04.505
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-03-21 16:48:09.552
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:503)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-03-21 16:48:09.556
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:503)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-21 16:51:11.767
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1458599849]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-21 16:51:13.800
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1458599849 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-21 16:51:37.710
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-21 16:51:57.917
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1458599849]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-21 16:51:59.505
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1458599849 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-21 17:16:18.835
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-21 17:16:39.043
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1458599849]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-21 17:16:40.497
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1458599849 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-21 17:18:50.789
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-21 17:18:51.081
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1458599849]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-21 17:18:52.509
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1458599849 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-03-21 19:16:28.090 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-21 19:17:20.920
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1458609163]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-21 19:17:22.930
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1458609163 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-03-21 19:26:56.672 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-21 19:27:38.159
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1458609810]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-21 19:27:40.164
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1458609810 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-03-27 18:17:49.071 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.ui 4 0 2016-03-27 18:18:15.552
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (org.eclipse.swt.SWTError: No more handles [Unknown Mozilla path (MOZILLA_FIVE_HOME not set)])
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3563)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3212)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2701)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2665)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2499)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:679)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:668)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+Caused by: org.eclipse.swt.SWTError: No more handles [Unknown Mozilla path (MOZILLA_FIVE_HOME not set)]
+	at org.eclipse.swt.SWT.error(SWT.java:4308)
+	at org.eclipse.swt.browser.Mozilla.initMozilla(Mozilla.java:1826)
+	at org.eclipse.swt.browser.Mozilla.create(Mozilla.java:687)
+	at org.eclipse.swt.browser.Browser.<init>(Browser.java:99)
+	at org.eclipse.epp.usagedata.internal.ui.wizards.TermsOfUseWizardPage.createControl(TermsOfUseWizardPage.java:48)
+	at org.eclipse.jface.wizard.Wizard.createPageControls(Wizard.java:174)
+	at org.eclipse.jface.wizard.WizardDialog.createPageControls(WizardDialog.java:736)
+	at org.eclipse.jface.wizard.WizardDialog.createContents(WizardDialog.java:608)
+	at org.eclipse.jface.window.Window.create(Window.java:431)
+	at org.eclipse.jface.dialogs.Dialog.create(Dialog.java:1089)
+	at org.eclipse.jface.window.Window.open(Window.java:790)
+	at org.eclipse.epp.usagedata.internal.ui.uploaders.AskUserUploader$1.run(AskUserUploader.java:65)
+	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:164)
+	at org.eclipse.ui.internal.UISynchronizer$3.run(UISynchronizer.java:158)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 23 more
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 18:18:54.746
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459124109]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 18:18:56.249
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459124109 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 18:21:20.114
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459124109]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 18:21:21.670
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459124109 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 18:22:09.626
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-03-27 18:22:14.675
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:503)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-03-27 18:22:14.681
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:503)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-03-27 18:22:45.457
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:503)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-03-27 18:22:45.472
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:503)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2016-03-27 18:30:42.982 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.core.resources 2 10035 2016-03-27 18:30:46.154
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 18:35:22.427
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459124829]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 18:35:24.434
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459124829 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 18:35:42.775
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 18:35:42.962
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459124829]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 18:35:44.331
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459124829 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 18:36:01.007
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 18:36:01.226
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459124829]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 18:36:03.219
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459124829 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-03-27 19:05:29.745 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.core.resources 2 10035 2016-03-27 19:05:32.279
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 19:06:33.786
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459126813]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 19:06:35.298
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459126813 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 19:19:49.210
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 19:19:49.409
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459126813]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 19:19:50.780
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459126813 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-03-27 19:34:25.442 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 19:35:12.678
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459128714]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 19:35:14.183
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459128714 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 19:35:36.274
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 19:35:36.461
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459128714]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 19:35:37.832
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459128714 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 19:36:12.253
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 19:36:12.442
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459128714]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 19:36:13.814
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459128714 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 19:36:32.292
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 19:36:32.481
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459128714]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-27 19:36:33.852
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459128714 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-03-31 15:18:55.063 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.core.resources 2 10035 2016-03-31 15:18:59.284
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 17:10:47.024
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459396365]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 17:10:48.280
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459396365 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 17:17:28.921
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 17:17:29.122
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459396365]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 17:17:30.488
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459396365 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 17:32:44.308
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 17:32:44.518
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459396365]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 17:32:45.884
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459396365 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 17:33:06.893
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 17:33:07.092
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459396365]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 17:33:08.457
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459396365 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 17:36:03.097
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 17:36:03.303
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459396365]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 17:36:04.672
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459396365 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 17:36:42.375
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 17:36:42.581
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459396365]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 17:36:43.943
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459396365 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 17:41:50.997
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 17:41:51.197
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459396365]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 17:41:52.563
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459396365 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 17:44:02.179
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 17:44:02.389
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459396365]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 17:44:03.759
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459396365 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 18:49:27.689
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 18:49:27.914
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459396365]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 18:49:29.282
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459396365 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 18:52:52.111
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 18:52:52.312
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459396365]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 18:52:53.681
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459396365 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 18:54:49.398
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 18:54:49.607
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459396365]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 18:54:50.975
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459396365 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-03-31 19:18:24.900
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception: System timestamp mismatch - connected: "1459472471", expected: "1459396365".
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.assertTrue(SystemConsoleConnectionModel.java:645)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateSystemId(SystemConsoleConnectionModel.java:631)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:511)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-03-31 19:18:24.916
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception: System timestamp mismatch - connected: "1459472471", expected: "1459396365".
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.assertTrue(SystemConsoleConnectionModel.java:645)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateSystemId(SystemConsoleConnectionModel.java:631)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:511)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 19:19:21.812
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459472471]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 19:19:23.340
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459472471 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 19:20:31.411
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 19:20:31.713
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459472471]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 19:20:33.248
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459472471 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 19:23:15.821
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 19:23:16.217
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459472471]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 19:23:17.722
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459472471 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 19:37:26.053
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 19:37:46.262
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459472471]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 19:37:47.697
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459472471 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 19:44:15.891
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 19:44:36.116
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459472471]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 19:44:37.689
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459472471 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-03-31 20:16:33.104 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 20:17:29.227
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459476805]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 20:17:30.724
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459476805 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 20:19:13.460
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 20:19:13.673
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459476805]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 20:19:15.044
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459476805 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 20:19:45.483
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 20:19:45.702
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459476805]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 20:19:47.071
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459476805 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 20:20:04.166
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 20:20:04.383
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459476805]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 20:20:05.752
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459476805 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 20:20:31.341
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 20:20:31.545
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459476805]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 20:20:32.915
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459476805 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-03-31 22:10:08.292 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 22:12:22.744
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459483611]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 22:12:24.237
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459483611 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 22:15:05.440
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 22:15:05.645
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459483611]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 22:15:07.014
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459483611 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 22:15:33.281
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 22:15:33.482
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890a0 --id=0x0 --timestamp=1459483611]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-03-31 22:15:34.855
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890a0 --id=0x0 --timestamp=1459483611 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-04-01 04:59:40.446 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 05:05:52.596
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459508161]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 05:05:54.085
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459508161 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 05:07:29.909
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 05:07:30.102
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459508161]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 05:07:31.469
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459508161 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-04-01 05:24:26.131 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.core.resources 2 10035 2016-04-01 05:24:28.441
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 05:25:02.962
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459509547]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 05:25:04.460
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459509547 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 05:25:21.740
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 05:25:22.441
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459509547]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 05:25:24.313
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459509547 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 05:26:17.332
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459509547]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 05:26:19.197
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459509547 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 05:27:28.334
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 05:27:29.184
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459509547]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 05:27:31.341
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459509547 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-04-01 05:44:49.133 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 06:24:05.364
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459510804]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 06:24:06.854
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459510804 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 06:45:18.637
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 06:45:18.839
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459510804]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 06:45:20.207
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459510804 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 06:46:11.454
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 06:46:11.657
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459510804]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 06:46:13.026
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459510804 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 06:50:40.969
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 06:50:41.171
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459510804]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 06:50:42.538
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459510804 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-04-01 07:07:38.364 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:33:01.669
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459515617]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:33:03.165
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459515617 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:33:25.411
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:33:25.624
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459515617]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:33:26.993
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459515617 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:34:10.486
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:34:10.697
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459515617]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:34:12.061
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459515617 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:34:57.535
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:34:57.735
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459515617]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:34:59.101
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459515617 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:43:11.984
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:43:12.193
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459515617]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:43:13.562
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459515617 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:43:50.934
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:43:51.132
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459515617]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:43:52.495
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459515617 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:47:50.519
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:47:50.724
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459515617]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:47:52.091
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459515617 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:48:27.400
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:48:27.606
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459515617]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:48:28.975
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459515617 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:52:15.152
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:52:15.349
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459515617]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:52:16.718
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459515617 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:52:44.077
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:52:44.282
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459515617]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:52:45.646
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459515617 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:54:11.569
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:54:11.764
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459515617]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 07:54:13.132
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459515617 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-04-01 08:05:00.886 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 08:05:54.891
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459519177]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 08:05:56.396
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459519177 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-04-01 08:11:50.946 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 08:22:33.944
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459519725]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 08:22:35.453
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459519725 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 08:23:11.407
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 08:23:11.668
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459519725]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 08:23:13.248
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459519725 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-04-01 08:37:41.357 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 08:44:23.175
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459521046]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 08:44:24.687
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459521046 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-04-01 08:51:54.702 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 08:53:37.066
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 08:53:39.077
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 08:55:49.491
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 08:55:49.750
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 08:55:51.139
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-04-01 10:09:44.697 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 10:14:05.598
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 10:14:07.099
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 10:15:00.813
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 10:15:01.008
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 10:15:02.370
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 10:26:30.076
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 10:26:30.283
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 10:26:31.653
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 10:26:54.664
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 10:26:54.879
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 10:26:56.250
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 10:39:44.903
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 10:39:45.109
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 10:39:46.481
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 10:40:39.116
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 10:40:39.318
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 10:40:40.691
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-04-01 12:14:42.951 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:25:39.406
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:25:40.898
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:26:44.378
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:26:44.572
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:26:45.938
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:28:09.023
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:28:09.239
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:28:10.606
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:29:07.142
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:29:07.348
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:29:08.715
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:29:36.065
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:29:36.353
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:29:37.764
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:29:49.288
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:29:49.501
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:29:50.875
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:30:22.230
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:30:22.441
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:30:23.826
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:31:53.359
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:31:53.554
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:31:54.924
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:33:41.078
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:33:41.283
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:33:42.655
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:34:16.001
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:34:16.207
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:34:17.574
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:34:28.682
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:34:28.892
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:34:30.263
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:34:51.091
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:34:51.299
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:34:52.670
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-04-01 12:41:02.735 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:43:48.445
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:43:49.948
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:44:53.734
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:44:53.942
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:44:55.310
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:45:17.110
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:45:17.330
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:45:18.697
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:45:28.247
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:45:28.457
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:45:29.829
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:57:30.385
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:57:30.589
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:57:31.960
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:57:50.483
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:57:50.694
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 12:57:52.061
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:00:21.296
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:00:21.503
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:00:22.874
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:03:58.861
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:03:59.076
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:04:00.446
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:06:39.156
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:06:39.361
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459522141]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:06:40.728
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459522141 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-04-01 13:14:25.869 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:14:59.206
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459537899]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:15:00.699
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459537899 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:16:02.731
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:16:02.931
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459537899]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:16:04.304
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459537899 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:16:52.508
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:16:52.717
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459537899]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:16:54.090
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459537899 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:17:13.072
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:17:13.279
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459537899]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:17:14.645
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459537899 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:17:53.818
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:17:54.025
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459537899]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:17:55.396
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459537899 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:21:41.263
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:21:41.472
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459537899]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:21:42.842
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459537899 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:23:24.021
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:23:24.233
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459537899]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:23:25.610
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459537899 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:24:40.965
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:24:41.176
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459537899]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:24:42.545
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459537899 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:25:52.786
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:25:53.005
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459537899]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:25:54.374
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459537899 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:26:49.157
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:26:49.357
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459537899]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:26:50.726
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459537899 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:27:23.372
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:27:23.584
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459537899]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:27:24.957
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459537899 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:28:17.289
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:28:17.514
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459537899]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:28:18.885
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459537899 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:29:03.841
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:29:04.067
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459537899]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:29:05.433
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459537899 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:29:44.005
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:29:44.220
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459537899]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:29:45.589
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459537899 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:31:06.460
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:31:06.671
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459537899]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:31:08.039
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459537899 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:31:41.155
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:31:41.379
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459537899]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:31:42.746
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459537899 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-04-01 13:44:33.918 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:44:58.847
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459539473]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:45:00.346
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459539473 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-04-01 13:51:16.405 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:55:41.297
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 13:55:42.790
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-04-01 14:07:10.066 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:09:55.484
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:09:56.846
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:11:24.080
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:11:25.474
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:12:15.137
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:12:15.357
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:12:16.725
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:12:40.201
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:12:40.393
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:12:41.759
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:13:51.805
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:13:52.017
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:13:53.388
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY org.eclipse.core.resources 4 376 2016-04-01 14:23:26.019
+!MESSAGE Marker id 1508 not found.
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:27:55.589
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:27:55.813
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:27:57.187
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:30:43.141
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:30:43.350
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:30:44.721
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:40:41.290
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:40:41.491
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:40:42.860
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:52:29.701
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:52:29.941
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:52:31.309
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:54:17.533
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:54:17.773
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 14:54:19.140
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 15:51:47.138
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 15:51:47.341
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 15:51:48.711
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 15:55:08.108
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 15:55:08.323
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 15:55:09.696
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 15:57:07.928
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 15:57:08.137
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 15:57:09.505
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 16:00:09.599
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 16:00:09.802
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 16:00:11.172
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 16:03:02.197
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 16:03:02.410
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-01 16:03:03.777
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-04-02 17:52:49.190 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.ui 4 0 2016-04-02 17:53:03.833
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (org.eclipse.swt.SWTError: No more handles [Unknown Mozilla path (MOZILLA_FIVE_HOME not set)])
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3563)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3212)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2701)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2665)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2499)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:679)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:668)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+Caused by: org.eclipse.swt.SWTError: No more handles [Unknown Mozilla path (MOZILLA_FIVE_HOME not set)]
+	at org.eclipse.swt.SWT.error(SWT.java:4308)
+	at org.eclipse.swt.browser.Mozilla.initMozilla(Mozilla.java:1826)
+	at org.eclipse.swt.browser.Mozilla.create(Mozilla.java:687)
+	at org.eclipse.swt.browser.Browser.<init>(Browser.java:99)
+	at org.eclipse.epp.usagedata.internal.ui.wizards.TermsOfUseWizardPage.createControl(TermsOfUseWizardPage.java:48)
+	at org.eclipse.jface.wizard.Wizard.createPageControls(Wizard.java:174)
+	at org.eclipse.jface.wizard.WizardDialog.createPageControls(WizardDialog.java:736)
+	at org.eclipse.jface.wizard.WizardDialog.createContents(WizardDialog.java:608)
+	at org.eclipse.jface.window.Window.create(Window.java:431)
+	at org.eclipse.jface.dialogs.Dialog.create(Dialog.java:1089)
+	at org.eclipse.jface.window.Window.open(Window.java:790)
+	at org.eclipse.epp.usagedata.internal.ui.uploaders.AskUserUploader$1.run(AskUserUploader.java:65)
+	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:164)
+	at org.eclipse.ui.internal.UISynchronizer$3.run(UISynchronizer.java:158)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 23 more
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 17:56:22.911
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 17:56:24.390
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 17:56:55.035
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 17:56:55.455
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 17:56:57.296
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 17:57:21.799
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 17:57:22.008
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 17:57:23.380
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-04-02 17:58:30.909 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 17:58:52.121
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 17:58:53.654
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 18:00:16.997
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-04-02 18:00:22.067
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:503)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-04-02 18:00:22.103
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:503)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2016-04-02 18:03:09.976 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 18:03:24.947
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 18:03:26.453
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 18:03:52.691
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 18:03:52.897
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 18:03:54.264
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 18:04:03.262
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 18:04:03.476
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 18:04:04.846
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 18:05:00.876
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 18:05:02.244
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 18:05:51.858
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 18:05:52.064
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 18:05:53.433
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-04-02 18:06:33.122 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 18:06:48.429
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 18:06:49.945
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 18:07:08.598
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 18:07:08.806
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459540051]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-02 18:07:10.178
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459540051 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-04-04 13:10:09.151 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-04 13:11:27.423
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459796815]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-04 13:11:28.916
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459796815 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-04 13:11:59.023
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-04 13:11:59.230
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459796815]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-04 13:12:00.600
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459796815 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-04-04 20:28:56.008 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.cdt.core 1 0 2016-04-04 20:36:49.620
+!MESSAGE Indexed 'g7_gesture_detection_bsp' (98 sources, 132 headers) in 0.98 sec: 5,709 declarations; 15,155 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.01%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2016-04-04 20:36:52.641
+!MESSAGE Indexed 'g7_gesture_detection' (19 sources, 101 headers) in 0.43 sec: 4,213 declarations; 8,620 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.02%)
+!SESSION 2016-04-04 20:46:06.034 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-04 20:47:05.110
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459824148]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-04 20:47:06.795
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459824148 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-04-06 02:18:33.619 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-04-06 02:27:56.847
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception: Connected system ID hash not found on target at expected base address.
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.assertTrue(SystemConsoleConnectionModel.java:645)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateSystemId(SystemConsoleConnectionModel.java:589)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:511)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-04-06 02:27:56.901
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception: Connected system ID hash not found on target at expected base address.
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.assertTrue(SystemConsoleConnectionModel.java:645)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateSystemId(SystemConsoleConnectionModel.java:589)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:511)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2016-04-06 02:36:36.132 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-06 02:36:53.774
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=' --instance=-1 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459931435]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-04-06 02:36:54.845
+!MESSAGE Failed Executing: [nios2-download, '--cable=', --instance=-1, --stop, --sidp=0x890c0, --id=0x0, --timestamp=1459931435] return code: 16
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-06 02:36:54.899
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=' --instance=-1 --go --sidp=0x890c0 --id=0x0 --timestamp=1459931435 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-04-06 02:36:56.233
+!MESSAGE Failed Executing: [nios2-download, '--cable=', --instance=-1, --go, --sidp=0x890c0, --id=0x0, --timestamp=1459931435, /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf] return code: 16
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-04-06 02:36:56.253
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-06 02:37:05.998
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=' --instance=-1 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459931435]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-04-06 02:37:07.048
+!MESSAGE Failed Executing: [nios2-download, '--cable=', --instance=-1, --stop, --sidp=0x890c0, --id=0x0, --timestamp=1459931435] return code: 16
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-06 02:37:07.105
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=' --instance=-1 --go --sidp=0x890c0 --id=0x0 --timestamp=1459931435 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-04-06 02:37:08.454
+!MESSAGE Failed Executing: [nios2-download, '--cable=', --instance=-1, --go, --sidp=0x890c0, --id=0x0, --timestamp=1459931435, /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf] return code: 16
+
+!ENTRY com.altera.sbtgui.launch 4 0 2016-04-06 02:37:08.471
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-06 02:37:36.612
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459931435]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-06 02:37:37.982
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459931435 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-06 02:40:20.794
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.7]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-06 02:40:21.421
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459931435]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-06 02:40:22.897
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459931435 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-06 02:40:58.482
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.7]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-06 02:40:59.127
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459931435]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-06 02:41:00.659
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459931435 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-06 02:41:22.552
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.7]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-06 02:41:23.065
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459931435]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-06 02:41:24.528
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459931435 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-06 02:42:06.710
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.7]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-06 02:42:07.366
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --stop --sidp=0x890c0 --id=0x0 --timestamp=1459931435]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2016-04-06 02:42:08.793
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --go --sidp=0x890c0 --id=0x0 --timestamp=1459931435 /afs/ualberta.ca/home/p/k/pkuczera/Documents/ECE492_Projects/capstone/ece492_w16/niosII_gesture_detection/software/g7_gesture_detection/g7_gesture_detection.elf]
+!SESSION 2016-04-06 14:59:50.571 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.cdt.core 1 0 2016-04-06 15:00:55.826
+!MESSAGE Indexed 'g7_gesture_detection_nv_bsp' (98 sources, 89 headers) in 1.77 sec: 2,968 declarations; 12,213 references; 124 unresolved inclusions; 5 syntax errors; 263 unresolved names (1.70%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2016-04-06 15:00:57.090
+!MESSAGE Indexed 'g7_gesture_detection_nv' (1 sources, 13 headers) in 0.03 sec: 8 declarations; 23 references; 15 unresolved inclusions; 0 syntax errors; 6 unresolved names (16.22%)
+!SESSION 2016-04-11 17:50:50.216 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.ui 4 0 2016-04-11 17:52:41.275
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (org.eclipse.swt.SWTError: No more handles [Unknown Mozilla path (MOZILLA_FIVE_HOME not set)])
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3563)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3212)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2701)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2665)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2499)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:679)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:668)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1386)
+Caused by: org.eclipse.swt.SWTError: No more handles [Unknown Mozilla path (MOZILLA_FIVE_HOME not set)]
+	at org.eclipse.swt.SWT.error(SWT.java:4308)
+	at org.eclipse.swt.browser.Mozilla.initMozilla(Mozilla.java:1826)
+	at org.eclipse.swt.browser.Mozilla.create(Mozilla.java:687)
+	at org.eclipse.swt.browser.Browser.<init>(Browser.java:99)
+	at org.eclipse.epp.usagedata.internal.ui.wizards.TermsOfUseWizardPage.createControl(TermsOfUseWizardPage.java:48)
+	at org.eclipse.jface.wizard.Wizard.createPageControls(Wizard.java:174)
+	at org.eclipse.jface.wizard.WizardDialog.createPageControls(WizardDialog.java:736)
+	at org.eclipse.jface.wizard.WizardDialog.createContents(WizardDialog.java:608)
+	at org.eclipse.jface.window.Window.create(Window.java:431)
+	at org.eclipse.jface.dialogs.Dialog.create(Dialog.java:1089)
+	at org.eclipse.jface.window.Window.open(Window.java:790)
+	at org.eclipse.epp.usagedata.internal.ui.uploaders.AskUserUploader$1.run(AskUserUploader.java:65)
+	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:164)
+	at org.eclipse.ui.internal.UISynchronizer$3.run(UISynchronizer.java:158)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 23 more

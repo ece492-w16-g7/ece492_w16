@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="g7_video_app_notes">
+		<CBX_INST_ENTRY INSTANCE_NAME="|g7_video_app_notes|niosII_system:u0|niosII_system_Dual_Clock_FIFO:dual_clock_fifo|dcfifo:Data_FIFO" CBX_FILE_NAME="dcfifo_5oj1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|g7_video_app_notes|niosII_system:u0|niosII_system_Pixel_DMA:pixel_dma|scfifo:Image_Buffer" CBX_FILE_NAME="scfifo_60a1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|g7_video_app_notes|niosII_system:u0|niosII_system_Pixel_Scaler:pixel_scaler|altera_up_video_scaler_multiply_height:Multiply_Height|scfifo:Multiply_Height_FIFO" CBX_FILE_NAME="scfifo_qd31.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|g7_video_app_notes|niosII_system:u0|niosII_system_Video_CSC:video_csc|altera_up_YCrCb_to_RGB_converter:YCrCb_to_RGB|lpm_mult:lpm_mult_component_2" CBX_FILE_NAME="mult_rpq.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|g7_video_app_notes|niosII_system:u0|niosII_system_Video_Decoder:video_decoder|altera_up_video_dual_clock_fifo:Video_In_Dual_Clock_FIFO|dcfifo:dcfifo_component" CBX_FILE_NAME="dcfifo_h2l1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|g7_video_app_notes|niosII_system:u0|niosII_system_CPU:cpu|niosII_system_CPU_nios2_oci:the_niosII_system_CPU_nios2_oci|niosII_system_CPU_nios2_oci_im:the_niosII_system_CPU_nios2_oci_im|niosII_system_CPU_traceram_lpm_dram_bdp_component_module:niosII_system_CPU_traceram_lpm_dram_bdp_component|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_e502.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|g7_video_app_notes|niosII_system:u0|niosII_system_CPU:cpu|niosII_system_CPU_nios2_oci:the_niosII_system_CPU_nios2_oci|niosII_system_CPU_nios2_ocimem:the_niosII_system_CPU_nios2_ocimem|niosII_system_CPU_ociram_lpm_dram_bdp_component_module:niosII_system_CPU_ociram_lpm_dram_bdp_component|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_bg82.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|g7_video_app_notes|niosII_system:u0|niosII_system_CPU:cpu|niosII_system_CPU_register_bank_a_module:niosII_system_CPU_register_bank_a|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_ulg1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|g7_video_app_notes|niosII_system:u0|niosII_system_Video_CSC:video_csc|altera_up_YCrCb_to_RGB_converter:YCrCb_to_RGB|lpm_mult:lpm_mult_component_3" CBX_FILE_NAME="mult_rpq.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|g7_video_app_notes|niosII_system:u0|niosII_system_Onchip_Memory:onchip_memory|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_mdd1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|g7_video_app_notes|niosII_system:u0|niosII_system_Video_CSC:video_csc|altera_up_YCrCb_to_RGB_converter:YCrCb_to_RGB|lpm_mult:lpm_mult_component_0" CBX_FILE_NAME="mult_rpq.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|g7_video_app_notes|niosII_system:u0|niosII_system_Video_CSC:video_csc|altera_up_YCrCb_to_RGB_converter:YCrCb_to_RGB|lpm_mult:lpm_mult_component_4" CBX_FILE_NAME="mult_rpq.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|g7_video_app_notes|niosII_system:u0|niosII_system_CPU:cpu|niosII_system_CPU_register_bank_b_module:niosII_system_CPU_register_bank_b|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_vlg1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|g7_video_app_notes|niosII_system:u0|niosII_system_Video_CSC:video_csc|altera_up_YCrCb_to_RGB_converter:YCrCb_to_RGB|lpm_mult:lpm_mult_component_1" CBX_FILE_NAME="mult_rpq.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

@@ -1,0 +1,5 @@
+set tool_name "ModelSim-Altera (VHDL)"
+set corner_file_list {
+	{{"Slow Model"} {niosII_gesture_detection.vho niosII_gesture_detection_vhd.sdo}}
+	{{"Fast Model"} {niosII_gesture_detection_fast.vho niosII_gesture_detection_vhd_fast.sdo}}
+}

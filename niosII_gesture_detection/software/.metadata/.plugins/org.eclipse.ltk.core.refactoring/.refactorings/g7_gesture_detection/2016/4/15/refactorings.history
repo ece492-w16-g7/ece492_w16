@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;g7_gesture_detection/util.h&apos; to &apos;player.h&apos;" description="Rename resource &apos;util.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="util.h" name="player.h" stamp="1459825603924" updateReferences="true"/>
+</session>

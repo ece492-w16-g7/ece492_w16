@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed Apr  6 14:53:01 2016
+Quartus II 32-bit Version : 12.1 Build 243 01/31/2013 SP 1 SJ Full Version
+Revision Name : niosII_gesture_detection
+Top-level Entity Name : niosII_gesture_detection
+Family : Cyclone II
+Total logic elements : 8,014
+    Total combinational functions : 6,841
+    Dedicated logic registers : 4,908
+Total registers : 4908
+Total pins : 220
+Total virtual pins : 0
+Total memory bits : 225,408
+Embedded Multiplier 9-bit elements : 14
+Total PLLs : 2

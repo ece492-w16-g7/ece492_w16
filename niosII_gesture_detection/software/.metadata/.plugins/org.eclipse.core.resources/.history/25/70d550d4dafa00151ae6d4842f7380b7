@@ -1,0 +1,51 @@
+#ifndef HELLO_UCOSII__
+#define HELLO_UCOSII__
+
+/* Generic buffer sizes. */
+#define SMALL_BUF_SIZE			20
+#define LARGE_BUF_SIZE 			100
+
+#define AUDIO_BUF_SIZE     		128
+#define WORD_COUNT   			(AUDIO_BUF_SIZE/2)
+
+/* Definition of Task Stacks */
+#define   TASK_STACKSIZE       2048
+
+OS_STK    GestureRecognitionTask_stk[TASK_STACKSIZE];
+OS_STK    LCDTask_stk[TASK_STACKSIZE];
+OS_STK    AudioTask_stk[TASK_STACKSIZE];
+
+/* Definition of Task Priorities */
+#define AUDIO_TASK_PRIORITY					2
+#define GESTURE_RECOGNITION_TASK_PRIORITY	1
+#define LCD_TASK_PRIORITY					3
+
+/* Screen Definitions */
+#define UPPER_SCREEN             0
+#define LOWER_SCREEN             1
+#define M_POSITION               0
+#define N_POSITION               8
+#define INIT_POSITION            0
+#define SCREEN_ROW_SIZE			16
+
+#define PLAY 					20
+#define PAUSE					21
+
+/* Globals */
+alt_up_character_lcd_dev * char_lcd_dev;
+alt_up_audio_dev * audio_dev;
+alt_up_av_config_dev* av_dev;
+EmbeddedFileSystem efsl;
+File readFile;
+
+#define RECOGNITION_ON
+
+/* Queue for LCD to print message. */
+#define LCDQSize 2
+OS_EVENT *lcd_queue;
+void *LCDQueue[LCDQSize];
+
+/* Queue for position data. */
+#define PositionQSize 2
+OS_EVENT *position_queue;
+void *PositionQueue[PositionQSize];

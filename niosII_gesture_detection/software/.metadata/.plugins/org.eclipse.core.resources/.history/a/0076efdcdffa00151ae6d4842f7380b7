@@ -1,0 +1,16 @@
+#ifndef PLAYER__
+#define PLAYER__
+
+struct Player {
+	struct Song * songlist;
+	struct Song currSong;
+	int
+};
+
+struct Song {
+	char * name;
+	euint32 start;
+	euint32 size;
+};
+
+#endif

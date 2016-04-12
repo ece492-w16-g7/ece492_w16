@@ -1,0 +1,16 @@
+Fitter Status : Successful - Mon Mar 28 18:22:05 2016
+Quartus II 32-bit Version : 12.1 Build 243 01/31/2013 SP 1 SJ Full Version
+Revision Name : g7_video_app_notes
+Top-level Entity Name : g7_video_app_notes
+Family : Cyclone II
+Device : EP2C35F672C6
+Timing Models : Final
+Total logic elements : 3,515 / 33,216 ( 11 % )
+    Total combinational functions : 3,316 / 33,216 ( 10 % )
+    Dedicated logic registers : 2,033 / 33,216 ( 6 % )
+Total registers : 2129
+Total pins : 90 / 475 ( 19 % )
+Total virtual pins : 0
+Total memory bits : 166,656 / 483,840 ( 34 % )
+Embedded Multiplier 9-bit elements : 10 / 70 ( 14 % )
+Total PLLs : 1 / 4 ( 25 % )

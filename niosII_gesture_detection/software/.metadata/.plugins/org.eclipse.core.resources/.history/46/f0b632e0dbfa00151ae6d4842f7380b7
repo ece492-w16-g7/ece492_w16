@@ -1,0 +1,11 @@
+#ifndef PLAYER__
+#define PLAYER__
+
+struct PlayerObj {
+	int grid_num;
+    struct DirectionNode *parent;
+    struct ChildDirectionNode *children;
+    int gesture_code;
+};
+
+#endif

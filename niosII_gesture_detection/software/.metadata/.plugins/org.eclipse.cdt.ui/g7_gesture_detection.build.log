@@ -1,0 +1,10 @@
+
+**** Build of configuration Nios II for project g7_gesture_detection ****
+
+make all 
+Info: Building ../g7_gesture_detection_bsp/
+make --no-print-directory -C ../g7_gesture_detection_bsp/
+[BSP build complete]
+[g7_gesture_detection build complete]
+
+**** Build Finished ****

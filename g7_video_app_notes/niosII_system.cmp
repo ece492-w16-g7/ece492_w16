@@ -1,0 +1,30 @@
+	component niosII_system is
+		port (
+			reset_reset_n                                  : in    std_logic                     := 'X';             -- reset_n
+			pixel_buffer_external_interface_DQ             : inout std_logic_vector(15 downto 0) := (others => 'X'); -- DQ
+			pixel_buffer_external_interface_ADDR           : out   std_logic_vector(17 downto 0);                    -- ADDR
+			pixel_buffer_external_interface_LB_N           : out   std_logic;                                        -- LB_N
+			pixel_buffer_external_interface_UB_N           : out   std_logic;                                        -- UB_N
+			pixel_buffer_external_interface_CE_N           : out   std_logic;                                        -- CE_N
+			pixel_buffer_external_interface_OE_N           : out   std_logic;                                        -- OE_N
+			pixel_buffer_external_interface_WE_N           : out   std_logic;                                        -- WE_N
+			vga_controller_external_interface_CLK          : out   std_logic;                                        -- CLK
+			vga_controller_external_interface_HS           : out   std_logic;                                        -- HS
+			vga_controller_external_interface_VS           : out   std_logic;                                        -- VS
+			vga_controller_external_interface_BLANK        : out   std_logic;                                        -- BLANK
+			vga_controller_external_interface_SYNC         : out   std_logic;                                        -- SYNC
+			vga_controller_external_interface_R            : out   std_logic_vector(9 downto 0);                     -- R
+			vga_controller_external_interface_G            : out   std_logic_vector(9 downto 0);                     -- G
+			vga_controller_external_interface_B            : out   std_logic_vector(9 downto 0);                     -- B
+			av_config_external_interface_SDAT              : inout std_logic                     := 'X';             -- SDAT
+			av_config_external_interface_SCLK              : out   std_logic;                                        -- SCLK
+			video_decoder_external_interface_TD_CLK27      : in    std_logic                     := 'X';             -- TD_CLK27
+			video_decoder_external_interface_TD_DATA       : in    std_logic_vector(7 downto 0)  := (others => 'X'); -- TD_DATA
+			video_decoder_external_interface_TD_HS         : in    std_logic                     := 'X';             -- TD_HS
+			video_decoder_external_interface_TD_VS         : in    std_logic                     := 'X';             -- TD_VS
+			video_decoder_external_interface_TD_RESET      : out   std_logic;                                        -- TD_RESET
+			video_decoder_external_interface_overflow_flag : out   std_logic;                                        -- overflow_flag
+			clock_clk_in_clk                               : in    std_logic                     := 'X'              -- clk
+		);
+	end component niosII_system;
+

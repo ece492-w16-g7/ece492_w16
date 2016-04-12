@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon Mar 28 18:21:45 2016
+Quartus II 32-bit Version : 12.1 Build 243 01/31/2013 SP 1 SJ Full Version
+Revision Name : g7_video_app_notes
+Top-level Entity Name : g7_video_app_notes
+Family : Cyclone II
+Total logic elements : 3,625
+    Total combinational functions : 3,292
+    Dedicated logic registers : 2,154
+Total registers : 2154
+Total pins : 90
+Total virtual pins : 0
+Total memory bits : 166,656
+Embedded Multiplier 9-bit elements : 10
+Total PLLs : 1

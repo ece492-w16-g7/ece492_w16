@@ -1,0 +1,5 @@
+set tool_name "ModelSim-Altera (VHDL)"
+set corner_file_list {
+	{{"Slow Model"} {g7_video_app_notes.vho g7_video_app_notes_vhd.sdo}}
+	{{"Fast Model"} {g7_video_app_notes_fast.vho g7_video_app_notes_vhd_fast.sdo}}
+}

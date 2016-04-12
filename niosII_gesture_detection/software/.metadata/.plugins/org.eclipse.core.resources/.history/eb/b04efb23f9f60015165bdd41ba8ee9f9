@@ -1,0 +1,157 @@
+/*************************************************************************
+* Copyright (c) 2004 Altera Corporation, San Jose, California, USA.      *
+* All rights reserved. All use of this software and documentation is     *
+* subject to the License Agreement located at the end of this file below.*
+**************************************************************************
+* Description:                                                           *
+* The following is a simple hello world program running MicroC/OS-II.The * 
+* purpose of the design is to be a very simple application that just     *
+* demonstrates MicroC/OS-II running on NIOS II.The design doesn't account*
+* for issues such as checking system call return codes. etc.             *
+*                                                                        *
+* Requirements:                                                          *
+*   -Supported Example Hardware Platforms                                *
+*     Standard                                                           *
+*     Full Featured                                                      *
+*     Low Cost                                                           *
+*   -Supported Development Boards                                        *
+*     Nios II Development Board, Stratix II Edition                      *
+*     Nios Development Board, Stratix Professional Edition               *
+*     Nios Development Board, Stratix Edition                            *
+*     Nios Development Board, Cyclone Edition                            *
+*   -System Library Settings                                             *
+*     RTOS Type - MicroC/OS-II                                           *
+*     Periodic System Timer                                              *
+*   -Know Issues                                                         *
+*     If this design is run on the ISS, terminal output will take several*
+*     minutes per iteration.                                             *
+**************************************************************************/
+
+
+#include <stdio.h>
+#include "includes.h"
+#include "altera_up_avalon_audio.h"
+#include "altera_up_avalon_audio_and_video_config.h"
+#include "sd/file.h"
+#include "sd/efs.h"
+
+/* The main function creates two task and starts multi-tasking */
+int main(void)
+{
+	alt_up_audio_dev * audio_dev;
+	alt_up_av_config_dev* av_dev;
+	EmbeddedFileSystem efsl;
+	File readFile;
+
+	// open the Audio port
+	av_dev = alt_up_av_config_open_dev(AV_CONFIG_NAME);
+	if (av_dev == NULL)
+	printf ("Error: could not open AV device \n");
+	else
+	printf ("Opened AV device \n");
+
+	/*int err = 0;
+		err = alt_up_av_config_write_audio_cfg_register(av_dev, 0x00, 0x17); // Left line-in 0dB attn, Mute disable
+		err = alt_up_av_config_write_audio_cfg_register(av_dev, 0x01, 0x17); // Right line-in 0dB attn, Mute disable
+		err = alt_up_av_config_write_audio_cfg_register(av_dev, 0x02, 0x79);
+		err = alt_up_av_config_write_audio_cfg_register(av_dev, 0x03, 0x79);
+		err = alt_up_av_config_write_audio_cfg_register(av_dev, 0x04, 0x12);
+		err = alt_up_av_config_write_audio_cfg_register(av_dev, 0x05, 0x00);
+		err = alt_up_av_config_write_audio_cfg_register(av_dev, 0x06, 0x00);
+		err = alt_up_av_config_write_audio_cfg_register(av_dev, 0x07, 0x4A);
+		err = alt_up_av_config_write_audio_cfg_register(av_dev, 0x08, 0x01);
+		err = alt_up_av_config_write_audio_cfg_register(av_dev, 0x09, 0x01);
+		if(err < 0)
+			printf("Audio Configuration Failed\n");
+		else
+			printf("Audio Configuration Succesful\n");*/
+
+	audio_dev = alt_up_audio_open_dev (AUDIO_0_NAME);
+	if ( audio_dev == NULL)
+	alt_printf ("Error: could not open audio device \n");
+	else
+	alt_printf ("Opened audio device \n");
+
+	//alt_up_audio_reset_audio_core(audio_dev);
+	//alt_up_audio_disable_write_interrupt(audio_dev);
+	//alt_up_audio_disable_read_interrupt(audio_dev);
+	//alt_up_audio_enable_write_interrupt(audio_dev);
+
+
+	char fileName[10] = {"class.wav\0"};
+
+	// Initialises the filesystem on the SD card, if the filesystem does not
+	// init properly then it displays an error message.
+	printf("Attempting to init filesystem");
+	int ret = efs_init(&efsl, SPI_0_NAME);
+
+	// Initialize efsl
+	if(ret != 0)
+	{
+		printf("...could not initialize filesystem.\n");
+		//return(1);
+	} else
+		printf("...success!\n");
+
+	// Open the test file
+	printf("\nAttempting to open file: \"%s\"\n", fileName);
+
+	if (file_fopen(&readFile, &efsl.myFs, fileName, 'r') != 0) {
+		printf("Error:\tCould not open file\n");
+		//return(1);
+	} else {
+		printf("Reading file...\n");
+	}
+
+	printf("filesize is: %d\n", readFile.FileSize);
+
+
+
+
+
+	unsigned int rdbuf[128];
+
+	/* read and echo audio data */
+	//int counter = 0;
+	while(1)
+	{
+	int fifospace = alt_up_audio_write_fifo_space(audio_dev, ALT_UP_AUDIO_RIGHT);
+	if ( fifospace > 100 ) // check if data is available
+	{
+		alt_up_audio_write_fifo(audio_dev, rdbuf, 100, ALT_UP_AUDIO_RIGHT);
+	    alt_up_audio_write_fifo(audio_dev, rdbuf, 100, ALT_UP_AUDIO_LEFT);
+
+	}
+	}
+}
+
+/******************************************************************************
+*                                                                             *
+* License Agreement                                                           *
+*                                                                             *
+* Copyright (c) 2004 Altera Corporation, San Jose, California, USA.           *
+* All rights reserved.                                                        *
+*                                                                             *
+* Permission is hereby granted, free of charge, to any person obtaining a     *
+* copy of this software and associated documentation files (the "Software"),  *
+* to deal in the Software without restriction, including without limitation   *
+* the rights to use, copy, modify, merge, publish, distribute, sublicense,    *
+* and/or sell copies of the Software, and to permit persons to whom the       *
+* Software is furnished to do so, subject to the following conditions:        *
+*                                                                             *
+* The above copyright notice and this permission notice shall be included in  *
+* all copies or substantial portions of the Software.                         *
+*                                                                             *
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  *
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,    *
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE *
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER      *
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING     *
+* FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER         *
+* DEALINGS IN THE SOFTWARE.                                                   *
+*                                                                             *
+* This agreement shall be governed in all respects by the laws of the State   *
+* of California and by the laws of the United States of America.              *
+* Altera does not recommend, suggest or require that this reference design    *
+* file be used in conjunction or combination with any other product.          *
+******************************************************************************/

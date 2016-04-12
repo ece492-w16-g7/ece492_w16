@@ -1,0 +1,7 @@
+
+**** Clean-only build of configuration Nios II for project g7_gesture_detection_nv ****
+
+make clean 
+[g7_gesture_detection_nv clean complete]
+
+**** Build Finished ****
